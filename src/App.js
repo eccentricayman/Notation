@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import SidebarComponent from './Sidebar/Sidebar';
+import NoteComponent from './Notes/Notes';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      /* TO-DO 
+        Add a filePath once folders are made
+        Add an owner and contributors when accounts registration are made
+        Add Revision History (This sounds very complicated could delete)
+        Add Tags once folders are made
+        Add Themes (last feature) for aethetic purposes
+      */
+      fileID: null,
+      fileName: null,
+      notes: null, //
+
+    }
+  }
+  render(){
+    return (
+      <div class="notation-container">
+        <SidebarComponent
+          fileID={this.state.fileID}
+          notes={this.state.notes}></SidebarComponent>
+        <NoteComponent></NoteComponent>
+
+      </div>
+    )
+  }
+  /*
+  componentDidMount = () =>{
+    //Connect the database with this
+  }
+  */
 }
 
 export default App;
