@@ -1,18 +1,30 @@
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+html, body{
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+#notation {
+    height: 100%;
+    box-sizing: border-box;
+  }
+.notation-container {
+    height: 100%;
+    box-sizing: border-box;
+  }
+.quill {
+    height: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 300px);
+    float: left;
+  }
+.ql-container {
+    box-sizing: border-box;
+    height: calc(100% - 42px);
+    overflow-y: scroll;
 }
-
-html{
-  height: 100%;
+.ql-editor {
+    cursor: text;
 }
-
-body {
-  width: 100vw;
-  min-height: auto;
-  background-color: #57068c;
-}
-
-
-
