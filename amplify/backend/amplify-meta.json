@@ -1,0 +1,54 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-notation-staging-174005-authRole",
+      "UnauthRoleArn": "arn:aws:iam::243261611594:role/amplify-notation-staging-174005-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::243261611594:role/amplify-notation-staging-174005-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-notation-staging-174005-deployment",
+      "UnauthRoleName": "amplify-notation-staging-174005-unauthRole",
+      "StackName": "amplify-notation-staging-174005",
+      "StackId": "arn:aws:cloudformation:us-east-1:243261611594:stack/amplify-notation-staging-174005/13f684d0-37ea-11eb-b473-12fa5e526083",
+      "AmplifyAppId": "d1449m6dg5y8gc"
+    }
+  },
+  "auth": {
+    "Notation": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/auth/Notation-cloudformation-template.yml",
+        "logicalId": "authNotation"
+      },
+      "lastPushTimeStamp": "2020-12-08T16:06:22.304Z",
+      "output": {
+        "AppClientSecret": "po4q8akbd24k255932sdpckr6ch66gduhr6h2njk3aohms7ovic",
+        "UserPoolId": "us-east-1_vzApv5F8i",
+        "AppClientIDWeb": "3afs2706a06p9vggbr5r808fm3",
+        "AppClientID": "1hitav472amjk50libqb0tr93b",
+        "IdentityPoolId": "us-east-1:962bbbe6-f1e3-441b-b82c-99155e88822b",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "Notation"
+      },
+      "lastPushDirHash": "sEC4Nc0axAi4htwYEElHhY+W47g="
+    }
+  },
+  "storage": {
+    "notes": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storagenotes"
+      },
+      "lastPushTimeStamp": "2020-12-08T16:06:22.306Z",
+      "output": {
+        "BucketName": "notationfae9470d52904fc6a62dd59d483b5a19174005-staging",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "xl1AYgimeHewTkAwEfVKcN7pq/Q="
+    }
+  }
+}
