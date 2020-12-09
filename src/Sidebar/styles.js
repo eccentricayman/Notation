@@ -42,6 +42,10 @@ const styles = theme => ({
     backgroundColor: '#57068C',
     borderRadius: '0px',
     color: 'white'
+  },
+  verticalLine: {
+    borderRight: '2px solid black',
+    height: '100%'
   }
 });
 
