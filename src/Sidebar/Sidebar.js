@@ -32,7 +32,8 @@ class SidebarComponent extends React.Component{
                             onClick={this.newNote}>Submit</Button>
                     </div> : null
                 }
-        </div>
+                <div className={classes.verticalLine}></div>
+            </div>
         );
     }
     /*
