@@ -48,7 +48,8 @@ class SidebarComponent extends React.Component{
                         );
                     })}
                 </List>
-        </div>
+                <div className={classes.verticalLine}></div>
+            </div>
         );
     }
     /*
