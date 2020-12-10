@@ -4,7 +4,7 @@ import NoteComponent from './Notes/Notes';
 import './App.css';
 import Register from './components/auth/Register.js';
 import Login from './components/auth/Login.js';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+//import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 /*
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
     </div>
   );
 */
-class App extends React.Component{
+export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
@@ -34,7 +34,7 @@ class App extends React.Component{
   render(){
     return (
       <div className="notation-container">
-        <AmplifySignOut />
+        {/* <AmplifySignOut /> */}
         <SidebarComponent
           fileID={this.state.fileID}
           notes={this.state.notes}
@@ -51,4 +51,4 @@ class App extends React.Component{
   */
 }
 
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
