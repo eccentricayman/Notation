@@ -15,7 +15,7 @@ class SidebarComponent extends React.Component{
         };
     }
     render(){
-        const {notes, classes, fileID} = this.props
+        const {notes, classes, fileID, selectedNoteIndex} = this.props
         return(
             <div className={classes.sidebarContainer}>
                 <Button
@@ -25,18 +25,34 @@ class SidebarComponent extends React.Component{
                 {
                     this.state.addingNote ? 
                     <div>
-                        <input type="text" className={classes.newNoteFileName} placeholder="Enter File Name"
-                        onKeyUp={(e) => this.updateTitle(e.target.value)}></input>
+                        <input type="text" className={classes.newNoteFileName} placeholder="Enter Note Name"
+                        onKeyUp={(e) => this.updateFileName(e.target.value)}></input>
                         <Button
                             className={classes.newNoteSubmitBtn}
                             onClick={this.newNote}>Submit</Button>
                     </div> : null
                 }
+                <List>
+                    {notes.map((note, index) => {
+                        return(
+                            <div key={index}>
+                                <SidebarItemComponent
+                                    note={note}
+                                    index={index}
+                                    fileID={fileID}
+                                    selectedNoteIndex={selectedNoteIndex}
+                                    selectNote={this.selectNote}
+                                    deleteNote={this.deleteNote} />
+                                <Divider></Divider>
+                            </div>
+                        );
+                    })}
+                </List>
         </div>
         );
     }
     /*
-    This block of code is for when notes are within a daatabase and the sidebar Items can appear
+    This block of code is for when notes are within a database and the sidebar Items can appear
     <List>
         {
         notes.map((_note, _index) => {
@@ -58,8 +74,8 @@ class SidebarComponent extends React.Component{
     newNoteBtnClick = () => {
         this.setState({addingNote:!this.state.addingNote, title: null});
     }
-    updateTitle = (txt) => {
-        this.setState({title: txt});
+    updateFileName = (name) => {
+        this.setState({title: name});
     }
     newNote = () => {
         //Insert database storing here
