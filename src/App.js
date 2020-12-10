@@ -20,22 +20,24 @@ class App extends React.Component{
       /* TO-DO 
         Add a filePath once folders are made
         Add an owner and contributors when accounts registration are made
-        Add Revision History (This sounds very complicated could delete)
         Add Tags once folders are made
         Add Themes (last feature) for aethetic purposes
       */
       fileID: null,
       fileName: null,
-      notes: null, //
+      selectedNoteIndex: null,
+      selectedNote: null,
+      notes: [{title: "Testing Title", body: "abcdefghijklmnopqrstuvwxyz"}], //
 
     }
   }
   render(){
     return (
-      <div class="notation-container">
+      <div className="notation-container">
         <SidebarComponent
           fileID={this.state.fileID}
-          notes={this.state.notes}></SidebarComponent>
+          notes={this.state.notes}
+          selectedNoteIndex={this.state.selectedNoteIndex}></SidebarComponent>
         <NoteComponent></NoteComponent>
 
       </div>
