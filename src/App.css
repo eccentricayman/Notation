@@ -17,8 +17,7 @@ html, body{
 .quill {
     height: 100%;
     box-sizing: border-box;
-    width: calc(100% - 300px);
-    float: left;
+    width: 100%;
   }
 .ql-container {
     box-sizing: border-box;
@@ -27,4 +26,8 @@ html, body{
 }
 .ql-editor {
     cursor: text;
+}
+.none-selected{
+  text-align: center;
+  font: 3rem;
 }

@@ -29,19 +29,38 @@ class App extends React.Component{
       fileName: null,
       selectedNoteIndex: null,
       selectedNote: null,
-      notes: [{title: "Testing Title", body: "abcdefghijklmnopqrstuvwxyz", type: 0}], //
+      notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 0},
+      {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 0}], //
 
     }
   }
-  addNote = (title, body, type) => {
+  addNote = (id, title, data, type) => {
     this.setState(prevState => ({
-      notes: [...prevState.notes, {title: title, body: body, type: type}]
+      notes: [...prevState.notes, {id: 2, title: title, data: data, type: type}]
     }));
     console.log(this.state.notes);
   }
 
+  selectNote = (note, index) => this.setState({selectedNoteIndex: index, selectedNote: note});
+
+  deleteNote = (note) => console.log("delete note");
+
+  updateNote = (noteObject) => {
+    console.log(noteObject);
+    let notes = [...this.state.notes];
+    const index = notes.findIndex((note) => note.id === noteObject.id);
+    const noteToUpdate = {...notes[index]};
+    console.log('NOTE TO UPDATE');
+    console.log(noteToUpdate);
+    console.log(index);
+    noteToUpdate.data = noteObject.data;
+    noteToUpdate.title = noteObject.title;
+    notes[index] = noteToUpdate;
+    this.setState({notes: notes});
+  };
 	render(){
 	    //	if (this.props.authState == "signedIn") {
+      console.log(this.state);
 		return (
 			<AmplifyAuthenticator usernameAlias="email">
                 <AmplifySignUp
@@ -75,8 +94,17 @@ class App extends React.Component{
             fileID={this.state.fileID}
             notes={this.state.notes}
             selectedNoteIndex={this.state.selectedNoteIndex}
-            addNote={this.addNote}></SidebarComponent>
-          <NoteComponent></NoteComponent>
+            addNote={this.addNote}
+            selectNote={this.selectNote}
+            deleteNote={this.deleteNote}></SidebarComponent>
+          { this.state.selectedNote ?
+            <NoteComponent 
+              selectedNote={this.state.selectedNote}
+              selectedNoteIndex={this.state.selectedNoteIndex}
+              notes={this.state.notes}
+              updateNote={this.updateNote}></NoteComponent> :
+              <div className="none-selected">Please choose a note to view or create a new one!</div>
+          }
                     <AmplifySignOut/>
 				</div>
                 
