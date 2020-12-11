@@ -15,7 +15,7 @@ import { AmplifyAuthenticator, AmplifySignUp, AmplifySignIn, AmplifySignOut } fr
   </div>
   );
 */
-export default class App extends React.Component{
+class App extends React.Component{
   constructor(){
     super();
     this.state = {
