@@ -4,10 +4,9 @@ const styles = theme => ({
     boxShadow: '0px 0px 2px black',
   },
   quillContainer:{
-    height: '100%-10px',
-    width: 'calc(100% + 150px)',
+    height: '100%',
+    width: '100%',
     boxSizing: 'border-box',
-    overflow:"scroll!important"
   },
   editorContainer: {
     float: 'right',

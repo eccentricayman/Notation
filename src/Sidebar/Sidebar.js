@@ -134,11 +134,10 @@ class SidebarComponent extends React.Component{
         this.props.addNote(title, 'abcdefghijklmnopqrstuvwxyz', newNotetype);
         this.setState({title:null});
         this.closingNote();
-        console.log("cool database stuff here");
 
     }
-    selectNote = () =>{
-        console.log("Select Note")
+    selectNote = (note, index) =>{
+        this.props.selectNote(note,index);
     }
     deleteNote = () => {
         console.log("Delete Note")

@@ -15,7 +15,7 @@ class NotesComponent extends React.Component {
     constructor(){
         super();
         this.state = {
-            notes: "",
+            data: "",
             fileName: "",
             fileID: "",
             //Theme menu
@@ -27,11 +27,28 @@ class NotesComponent extends React.Component {
             toggleGrid:false,
             canvasColor:"rgba(150,150,150,.3)",
             //True for react Quill, False for React-Canvas, default is false
-            quill:false
+            quill:true
         };
 
     }
     
+    componentDidMount = () => {
+        this.setState({
+            data: this.props.selectedNote.data,
+            fileName: this.props.selectedNote.title,
+            fileID: this.props.selectedNote.id,
+        });
+    }
+
+    componentDidUpdate = () => {
+        if(this.props.selectedNote.id !== this.state.fileID){
+            this.setState({
+                data: this.props.selectedNote.data,
+                fileName: this.props.selectedNote.title,
+                fileID: this.props.selectedNote.id,
+            });
+        }
+    }
     render(){
         const {classes} = this.props;
         return (
@@ -39,7 +56,9 @@ class NotesComponent extends React.Component {
                 {
                     this.state.quill ?
                     <div className={classes.quillContainer}>
-                        <ReactQuill ></ReactQuill> 
+                        <ReactQuill 
+                            value={this.state.data}
+                            onChange={this.updateData}></ReactQuill> 
                     </div>
                         : null
                 }
@@ -167,8 +186,8 @@ class NotesComponent extends React.Component {
         );
     }
     // Storing something into the database
-    updateBody = async (val) => {
-        await this.setState({text:val});
+    updateData = async (val) => {
+        await this.setState({data:val});
         this.update();
     };
 
@@ -176,7 +195,12 @@ class NotesComponent extends React.Component {
     update = debounce(() => {
         //insert code to update to database
         console.log('updating database');
-    }, 3000);
+        this.props.updateNote({
+            id: this.state.fileID,
+            title: this.state.fileName,
+            data: this.state.data
+        })
+    }, 1500);
 
     //Toggle theme menu
     openThemeMenu = (e) => {

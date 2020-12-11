@@ -54,12 +54,12 @@ class SidebarItemComponent extends React.Component{
                         }}>
                             <ListItemText
                             /*note.title is whatever name the note has
-                            note.body is the contents of the note
+                            note.data is the contents of the note
                             primary = primary label for list item
                             secondary = subtext for listitem 
                             Shows preview for note contents*/
                                 primary={note.title}
-                                secondary={note.body.substring(0, 30) + '...'}>
+                                secondary={note.data.substring(0, 30) + '...'}>
 
                             </ListItemText>
                         
