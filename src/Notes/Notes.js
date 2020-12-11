@@ -5,7 +5,6 @@ import BorderColorIcon from '@material-ui/icons/BorderColor';
 import {Divider, Button, Popover, Input, Slider, Grid } from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import styles from './styles'
-import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { Block } from '@material-ui/icons';
 
