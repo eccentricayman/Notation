@@ -13,19 +13,5 @@
     }
   },
   "auth": {},
-  "storage": {
-    "notes": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "BucketName": "notationfae9470d52904fc6a62dd59d483b5a19174005-staging",
-        "Region": "us-east-1"
-      },
-      "lastPushTimeStamp": "2020-12-08T17:45:41.291Z",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-        "logicalId": "storagenotes"
-      }
-    }
-  }
+  "storage": {}
 }
