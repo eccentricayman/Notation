@@ -3,12 +3,23 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
     boxShadow: '0px 0px 2px black',
   },
+  quillContainer:{
+    height: '100%-10px',
+    width: 'calc(100% + 150px)',
+    boxSizing: 'border-box',
+    overflow:"scroll!important"
+  },
   editorContainer: {
     float: 'right',
     height: '100%',
     width: 'calc(100% - 300px)',
     boxSizing: 'border-box',
-    zIndex:'0'
+  },
+  canvasContainer: {
+    float: 'right',
+    height: '100%',
+    width: "100%",
+    boxSizing: 'border-box',
   },
   editor:{
     float: 'right',

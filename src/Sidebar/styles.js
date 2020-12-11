@@ -7,7 +7,7 @@ const styles = theme => ({
     width: '300px',
     boxShadow: '0px 0px 2px black'
   },
-  newNoteBtn: {
+  addingNote: {
     color: 'white',
     '&:hover': {
       backgroundColor: '#88a2ce'
