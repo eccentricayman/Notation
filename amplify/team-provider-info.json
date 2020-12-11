@@ -12,6 +12,7 @@
       "AmplifyAppId": "d1449m6dg5y8gc"
     },
     "categories": {
+<<<<<<< HEAD
       "function": {
         "notation0cfab039CustomMessage": {
           "REDIRECTURL": "",
@@ -21,6 +22,9 @@
       },
       "auth": {
         "notation0cfab039": {},
+=======
+      "auth": {
+>>>>>>> dev
         "Notation": {}
       }
     }

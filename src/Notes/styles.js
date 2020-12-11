@@ -25,7 +25,7 @@ const styles = theme => ({
     float: 'right',
     width: '100%',
     height: '100%',
-    boxSizing:'border-box'
+    boxSizing:'border-box',
   },
   icon:{
     '&:hover': {
