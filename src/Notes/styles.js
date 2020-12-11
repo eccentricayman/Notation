@@ -8,13 +8,12 @@ const styles = theme => ({
     height: '100%',
     width: 'calc(100% - 300px)',
     boxSizing: 'border-box',
-    zIndex:'0'
   },
   editor:{
     float: 'right',
     width: '100%',
     height: '100%',
-    boxSizing:'border-box'
+    boxSizing:'border-box',
   },
   icon:{
     '&:hover': {
