@@ -22,7 +22,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/auth/Notation-cloudformation-template.yml",
         "logicalId": "authNotation"
       },
-      "lastPushTimeStamp": "2020-12-11T12:30:32.793Z",
+      "lastPushTimeStamp": "2020-12-11T21:31:15.852Z",
       "output": {
         "AppClientSecret": "p8fv8e2a692o5accmcohv420b14fff4ljfu11m35dde5rp5jkts",
         "UserPoolId": "us-east-1_rblrMocDX",
@@ -59,8 +59,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiNotationAPI"
       },
-      "lastPushTimeStamp": "2020-12-11T12:30:34.540Z",
-      "lastPushDirHash": "dSX3d/I8SxqphkfiBECstgYx7NM="
+      "lastPushTimeStamp": "2020-12-11T21:31:18.399Z",
+      "lastPushDirHash": "zK5se3TYcJEWaG4hGNfMfILrbag="
     }
   }
 }
