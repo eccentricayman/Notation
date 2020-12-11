@@ -4,7 +4,7 @@ import NoteComponent from './Notes/Notes';
 import './App.css';
 import Register from './components/auth/Register.js';
 import Login from './components/auth/Login.js';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+//import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 /*
 function App() {
   return (
@@ -13,32 +13,34 @@ function App() {
     </div>
   );
 */
-class App extends React.Component{
+export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
       /* TO-DO 
         Add a filePath once folders are made
         Add an owner and contributors when accounts registration are made
-        Add Revision History (This sounds very complicated could delete)
         Add Tags once folders are made
         Add Themes (last feature) for aethetic purposes
       */
       fileID: null,
       fileName: null,
-      notes: null, //
+      selectedNoteIndex: null,
+      selectedNote: null,
+      notes: [{title: "Testing Title", body: "abcdefghijklmnopqrstuvwxyz"}], //
 
     }
   }
   render(){
     return (
-			<div class="notation-container">
-			<AmplifySignOut />
-			<SidebarComponent
-			fileID={this.state.fileID}
-        notes={this.state.notes}></SidebarComponent>
-			<NoteComponent></NoteComponent>
-			
+      <div className="notation-container">
+        {/* <AmplifySignOut /> */}
+        <SidebarComponent
+          fileID={this.state.fileID}
+          notes={this.state.notes}
+          selectedNoteIndex={this.state.selectedNoteIndex}></SidebarComponent>
+        <NoteComponent></NoteComponent>
+
       </div>
     )
   }
@@ -49,4 +51,4 @@ class App extends React.Component{
   */
 }
 
-export default withAuthenticator(App);
+//export default withAuthenticator(App);
