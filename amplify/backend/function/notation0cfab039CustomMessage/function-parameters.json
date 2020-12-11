@@ -1,0 +1,25 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "notation0cfab039",
+  "functionName": "notation0cfab039CustomMessage",
+  "resourceName": "notation0cfab039CustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "roleName": "notation0cfab039CustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "",
+  "EMAILSUBJECT": "Notation: Verify Email",
+  "EMAILMESSAGE": "Verify your email for Notation by clicking this link: ",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}
