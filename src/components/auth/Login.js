@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import {makeStyles} from '@material-ui/core/styles';
+import { Auth } from 'aws-amplify';
 
 
 const useStyles = makeStyles((theme) => ({
