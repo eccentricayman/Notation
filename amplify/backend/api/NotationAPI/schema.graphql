@@ -1,5 +1,8 @@
 type Note @model {
   id: ID!
-  name: String!
-  description: String
+  title: String!
+  type: Boolean!
+  data: String!
+  tags: [String]
+  users: [String!]!
 }
