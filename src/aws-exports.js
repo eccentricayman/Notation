@@ -3,8 +3,6 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_user_files_s3_bucket": "notationfae9470d52904fc6a62dd59d483b5a19174005-staging",
-    "aws_user_files_s3_bucket_region": "us-east-1",
     "aws_cognito_identity_pool_id": "us-east-1:962bbbe6-f1e3-441b-b82c-99155e88822b",
     "aws_cognito_region": "us-east-1",
     "aws_user_pools_id": "us-east-1_vzApv5F8i",
