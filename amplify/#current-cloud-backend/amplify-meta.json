@@ -13,59 +13,27 @@
     }
   },
   "auth": {
-    "notation0cfab039": {
+    "Notation": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "notation0cfab039CustomMessage",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "customAuth": false,
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/auth/notation0cfab039-cloudformation-template.yml",
-        "logicalId": "authnotation0cfab039"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/auth/Notation-cloudformation-template.yml",
+        "logicalId": "authNotation"
       },
-      "lastPushTimeStamp": "2020-12-11T10:13:29.342Z",
+      "lastPushTimeStamp": "2020-12-11T10:39:03.025Z",
       "output": {
-        "AppClientSecret": "jp8r4ffe9ma5ji8ivktc2d5bj7d8plpk0jvrcle90kv4btkdluj",
-        "UserPoolId": "us-east-1_WCFVwc2Wy",
-        "AppClientIDWeb": "75b5dhh88d7icdbc2ffh2ghd87",
-        "AppClientID": "6pl18kp3rk9ur38r5v1pjqft25",
-        "IdentityPoolId": "us-east-1:0cf69376-1207-4bd7-beed-2a7a3a07a7c0",
-        "IdentityPoolName": "notation0cfab039_identitypool_0cfab039__staging",
-        "UserPoolName": "notation0cfab039_userpool_0cfab039"
+        "AppClientSecret": "p8fv8e2a692o5accmcohv420b14fff4ljfu11m35dde5rp5jkts",
+        "UserPoolId": "us-east-1_rblrMocDX",
+        "AppClientIDWeb": "6oahmcjouoil6kndcme293tdfu",
+        "AppClientID": "4s4k5gkj650ap1u7d6lua1ufva",
+        "IdentityPoolId": "us-east-1:0bd29975-9051-45d2-a0a3-6ca58704fd37",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "Notation"
       },
-      "lastPushDirHash": "1RmRZRXnsiwretj1EuRB1x+5bn4="
+      "lastPushDirHash": "XafnB1HRMY31pKWPp/ZRoJk9wgw="
     }
   },
-  "storage": {},
-  "function": {
-    "notation0cfab039CustomMessage": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "lastBuildTimeStamp": "2020-12-11T10:09:56.911Z",
-      "lastPackageTimeStamp": "2020-12-11T10:09:56.975Z",
-      "distZipFilename": "notation0cfab039CustomMessage-495677385441774e4b32-build.zip",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/function/notation0cfab039CustomMessage-cloudformation-template.json",
-        "logicalId": "functionnotation0cfab039CustomMessage"
-      },
-      "lastPushTimeStamp": "2020-12-11T10:13:29.342Z",
-      "output": {
-        "Region": "us-east-1",
-        "Arn": "arn:aws:lambda:us-east-1:243261611594:function:notation0cfab039CustomMessage-staging",
-        "Name": "notation0cfab039CustomMessage-staging",
-        "LambdaExecutionRole": "notation0cfab039CustomMessage-staging"
-      },
-      "lastPushDirHash": "2PkKzF2ZB6MI53YSCfeWo/qC2Mo="
-    }
-  }
+  "storage": {}
 }

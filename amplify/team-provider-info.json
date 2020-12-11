@@ -20,7 +20,8 @@
         }
       },
       "auth": {
-        "notation0cfab039": {}
+        "notation0cfab039": {},
+        "Notation": {}
       }
     }
   }
