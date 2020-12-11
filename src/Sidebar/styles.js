@@ -7,7 +7,7 @@ const styles = theme => ({
     width: '300px',
     boxShadow: '0px 0px 2px black'
   },
-  newNoteBtn: {
+  addingNote: {
     color: 'white',
     '&:hover': {
       backgroundColor: '#88a2ce'
@@ -42,6 +42,10 @@ const styles = theme => ({
     backgroundColor: '#57068C',
     borderRadius: '0px',
     color: 'white'
+  },
+  verticalLine: {
+    borderRight: '2px solid black',
+    height: '100%'
   }
 });
 
