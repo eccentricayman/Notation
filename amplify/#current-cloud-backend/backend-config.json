@@ -1,12 +1,5 @@
 {
-  "auth": {
-    "Notation": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  },
+  "auth": {},
   "storage": {
     "notes": {
       "service": "S3",
