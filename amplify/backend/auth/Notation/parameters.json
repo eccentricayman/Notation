@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "notation0cfab039_identitypool_0cfab039",
+    "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "notati0cfab039",
-    "userPoolName": "notation0cfab039_userpool_0cfab039",
+    "resourceNameTruncated": "notatifd8e883d",
+    "userPoolName": "Notation",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -12,11 +12,16 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Your verification code",
-    "emailVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Notation: Forgot password code: {####}",
+    "emailVerificationMessage": "Forgot password code: {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Numbers",
+        "Requires Symbols",
+        "Requires Uppercase"
+    ],
     "requiredAttributes": [
         "email",
         "name"
@@ -29,10 +34,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "notati0cfab039_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "Notatifd8e883d_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "0cfab039",
-    "resourceName": "notation0cfab039",
+    "sharedId": "fd8e883d",
+    "resourceName": "Notation",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,27 +51,15 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "serviceName": "Cognito",
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{\n  \"CustomMessage\": [\n    \"verification-link\"\n  ]\n}",
+    "useDefault": "manual",
+    "userPoolGroups": false,
     "userPoolGroupList": [],
-    "serviceName": "Cognito",
-    "verificationBucketName": "notation0cfab039verificationbucket",
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": [],
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "notation0cfab039CustomMessage",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        }
-    ]
+    "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
+    "dependsOn": []
 }
