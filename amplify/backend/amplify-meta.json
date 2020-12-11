@@ -12,43 +12,20 @@
       "AmplifyAppId": "d1449m6dg5y8gc"
     }
   },
-  "auth": {
-    "Notation": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false,
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/auth/Notation-cloudformation-template.yml",
-        "logicalId": "authNotation"
-      },
-      "lastPushTimeStamp": "2020-12-08T16:06:22.304Z",
-      "output": {
-        "AppClientSecret": "po4q8akbd24k255932sdpckr6ch66gduhr6h2njk3aohms7ovic",
-        "UserPoolId": "us-east-1_vzApv5F8i",
-        "AppClientIDWeb": "3afs2706a06p9vggbr5r808fm3",
-        "AppClientID": "1hitav472amjk50libqb0tr93b",
-        "IdentityPoolId": "us-east-1:962bbbe6-f1e3-441b-b82c-99155e88822b",
-        "IdentityPoolName": "testAuthIdentityPool__staging",
-        "UserPoolName": "Notation"
-      },
-      "lastPushDirHash": "sEC4Nc0axAi4htwYEElHhY+W47g="
-    }
-  },
+  "auth": {},
   "storage": {
     "notes": {
       "service": "S3",
       "providerPlugin": "awscloudformation",
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-        "logicalId": "storagenotes"
-      },
-      "lastPushTimeStamp": "2020-12-08T16:06:22.306Z",
       "output": {
         "BucketName": "notationfae9470d52904fc6a62dd59d483b5a19174005-staging",
         "Region": "us-east-1"
       },
-      "lastPushDirHash": "xl1AYgimeHewTkAwEfVKcN7pq/Q="
+      "lastPushTimeStamp": "2020-12-11T09:56:02.488Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+        "logicalId": "storagenotes"
+      }
     }
   }
 }

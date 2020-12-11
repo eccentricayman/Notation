@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "providers": [
     "awscloudformation"
   ],
@@ -10,12 +9,9 @@
     "framework": "react",
     "config": {
       "SourceDir": "src",
-      "DistributionDir": "",
+      "DistributionDir": "build",
       "BuildCommand": "npm run-script build",
       "StartCommand": "npm run-script start"
     }
   }
-=======
-  "version": "3.0"
->>>>>>> dev
 }
