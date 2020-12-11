@@ -15,6 +15,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import { FilterNone } from '@material-ui/icons';
 
 
 class SidebarComponent extends React.Component{
@@ -22,11 +23,13 @@ class SidebarComponent extends React.Component{
         super();
         this.state = {
             addingNote: false,
-            title: null
+            title: null,
+            newNotetype: 0,
         };
     }
     render(){
-        const {notes, classes, fileID, selectedNoteIndex} = this.props
+        const {notes, classes, fileID, selectedNoteIndex} = this.props;
+        console.log(this.state);
         return(
             <div className={classes.sidebarContainer}>
                 <Button
@@ -49,12 +52,14 @@ class SidebarComponent extends React.Component{
                                     label="File Name"
                                     type="text"
                                     fullWidth
+                                    defaultValue="New File"
+                                    onChange={(e)=>this.updateFileName(e.target.value)}
                                 />
                                 <FormControl component="fieldset">
                                 <FormLabel component="legend">Note Type: </FormLabel>
-                                <RadioGroup aria-label="noteType" name="noteType" >
-                                    <FormControlLabel value="true" control={<Radio />} label="Quill" />
-                                    <FormControlLabel value="false" control={<Radio />} label="Canvas" />
+                                <RadioGroup aria-label="noteType" name="noteType" onChange={this.handleNoteType} value={this.state.newNotetype}>
+                                    <FormControlLabel value={0} control={<Radio />} label="Quill" />
+                                    <FormControlLabel value={1} control={<Radio />} label="Canvas" />
                                 </RadioGroup>
                                 </FormControl>
                             </DialogContent>
@@ -62,7 +67,7 @@ class SidebarComponent extends React.Component{
                                 <Button onClick={this.closingNote} color="primary">
                                     Cancel
                                 </Button>
-                                <Button onClick={this.newNote, this.closingNote} color="primary">
+                                <Button onClick={()=>this.newNote(this.state.title,this.state.newNotetype)} color="primary">
                                     Submit
                                 </Button>
                             </DialogActions>
@@ -118,16 +123,28 @@ class SidebarComponent extends React.Component{
     updateFileName = (name) => {
         this.setState({title: name});
     }
-    newNote = () => {
+    newNote = (title,newNotetype) => {
         //Insert database storing here
         //this.setState({title:null, addingNote: false});
-        console.log("cool database stuff here")
+        if (this.state.title === null){
+            console.log('using default title')
+            title = "New Note";
+        };
+        console.log('in newNote function');
+        this.props.addNote(title, 'abcdefghijklmnopqrstuvwxyz', newNotetype);
+        this.setState({title:null});
+        this.closingNote();
+        console.log("cool database stuff here");
+
     }
     selectNote = () =>{
         console.log("Select Note")
     }
     deleteNote = () => {
         console.log("Delete Note")
+    }
+    handleNoteType = (e) => {
+        this.setState({newNotetype: Number(e.target.value)});
     }
 }
 export default withStyles(styles)(SidebarComponent)
