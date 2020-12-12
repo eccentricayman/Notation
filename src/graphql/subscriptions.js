@@ -9,11 +9,7 @@ export const onCreateNote = /* GraphQL */ `
       type
       data
       tags
-<<<<<<< HEAD
-      users
-=======
       owner
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
       createdAt
       updatedAt
     }
@@ -27,11 +23,7 @@ export const onUpdateNote = /* GraphQL */ `
       type
       data
       tags
-<<<<<<< HEAD
-      users
-=======
       owner
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
       createdAt
       updatedAt
     }
@@ -45,11 +37,7 @@ export const onDeleteNote = /* GraphQL */ `
       type
       data
       tags
-<<<<<<< HEAD
-      users
-=======
       owner
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
       createdAt
       updatedAt
     }
