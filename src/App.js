@@ -127,6 +127,9 @@ class App extends React.Component{
       notes[index] = noteToUpdate;
       this.setState({notes: notes});
     }
+    shareNote = (note,user) => {
+      console.log(user);
+    }
 	render(){
 	    //	if (this.props.authState == "signedIn") {
         console.log(this.state);
@@ -170,7 +173,8 @@ class App extends React.Component{
             addNote={this.addNote}
             selectNote={this.selectNote}
             deleteNote={this.deleteNote}
-            deleteTag={this.deleteTag}></SidebarComponent>
+            deleteTag={this.deleteTag}
+            shareNote={this.shareNote}></SidebarComponent>
           { this.state.selectedNote ?
             <NoteComponent 
               ref={noteComponent =>this.noteComponent = noteComponent}

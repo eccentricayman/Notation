@@ -16,6 +16,14 @@ const styles = theme => ({
         color: 'red'
       }
   },
+  shareIcon:{
+    position: "absolute",
+    right: "45px",
+    top: 'calc(50%-15px)',
+      '&:hover': {
+        color: 'blue'
+      }
+  },
   itemTagSection: {
     display: 'flex',
     flexWrap: 'wrap',
