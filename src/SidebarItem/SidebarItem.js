@@ -11,6 +11,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import Chip from '@material-ui/core/Chip';
+import {removeHTMLTags} from '../helpers.js';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -40,6 +42,10 @@ class SidebarItemComponent extends React.Component{
         this.setState({deleteDialogOpen: false});
     }
 
+    deleteTag = (noteId, targetTag) => {
+        this.props.deleteTag(noteId, targetTag);
+    }
+
     render(){
         const {index, note, classes, selectedNoteIndex} = this.props;
         return(
@@ -59,7 +65,7 @@ class SidebarItemComponent extends React.Component{
                             secondary = subtext for listitem 
                             Shows preview for note contents*/
                                 primary={note.title}
-                                secondary={note.data.substring(0, 30) + '...'}>
+                                secondary={removeHTMLTags(note.data.substring(0, 20)) + '...'}>
 
                             </ListItemText>
                         
@@ -95,6 +101,19 @@ class SidebarItemComponent extends React.Component{
                         </DialogActions>
                     </Dialog>
                 </ListItem>
+                <div className={classes.itemTagSection}>
+                        {note.tags.map((tag, index) => {
+                            return(
+                                <Chip
+                                    className={classes.tag}
+                                    key={index}
+                                    size="small"
+                                    label={tag}
+                                    onDelete={() => this.deleteTag(note.id, tag)}
+                                />
+                            )
+                        })}
+                </div>
             </div>
         
         );

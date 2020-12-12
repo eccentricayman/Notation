@@ -29,8 +29,8 @@ class App extends React.Component{
       title: null,
       selectedNoteIndex: null,
       selectedNote: null,
-      notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 1},
-      {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 1}], //
+      notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 1, tags: ['omegatag']},
+      {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 1, tags: ['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6']}], //
       currentNewId: 3,
       //True for react Quill, False for React-Canvas, default is false
       quill:true
@@ -85,6 +85,17 @@ class App extends React.Component{
     notes[index] = noteToUpdate;
     this.setState({notes: notes});
   };
+
+  deleteTag = (noteId,targetTag) => {
+    let notes = [...this.state.notes];
+    const index = notes.findIndex((note) => note.id === noteId);
+    const noteToUpdate = {...this.state.notes[index]};
+    const newTags = noteToUpdate.tags.filter( (tag) => tag !== targetTag);
+    noteToUpdate.tags = newTags;
+    notes[index] = noteToUpdate;
+    this.setState({notes: notes});
+  }
+
 	render(){
 	    //	if (this.props.authState == "signedIn") {
     console.log(this.state);
@@ -127,7 +138,8 @@ class App extends React.Component{
             selectedNoteIndex={this.state.selectedNoteIndex}
             addNote={this.addNote}
             selectNote={this.selectNote}
-            deleteNote={this.deleteNote}></SidebarComponent>
+            deleteNote={this.deleteNote}
+            deleteTag={this.deleteTag}></SidebarComponent>
           { this.state.selectedNote ?
             <NoteComponent 
               ref={noteComponent =>this.noteComponent = noteComponent}

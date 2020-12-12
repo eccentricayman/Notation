@@ -1,6 +1,9 @@
+import { Block } from "@material-ui/icons";
+
 const styles = theme => ({
   listItem: {
-    cursor: 'pointer'
+    cursor: 'pointer',
+    minHeight: '85px'
   },
   textSection: {
     maxWidth: '80%'
@@ -12,6 +15,15 @@ const styles = theme => ({
       '&:hover': {
         color: 'red'
       }
+  },
+  itemTagSection: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    width: '100%',
+    padding: '0 0 2% 2%'
+  },
+  tag: {
+    marginRight: '3px',
   }
 });
 

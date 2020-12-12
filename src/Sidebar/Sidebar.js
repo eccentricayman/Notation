@@ -88,7 +88,8 @@ class SidebarComponent extends React.Component{
                                     fileID={fileID}
                                     selectedNoteIndex={selectedNoteIndex}
                                     selectNote={this.selectNote}
-                                    deleteNote={this.deleteNote} />
+                                    deleteNote={this.deleteNote}
+                                    deleteTag={this.deleteTag} />
                                 <Divider></Divider>
                             </div>
                         );
@@ -164,6 +165,9 @@ class SidebarComponent extends React.Component{
     }
     setNoteType = (newNotetype) =>{
         this.props.setNoteType(newNotetype);
+    }
+    deleteTag = (noteId, targetTag) => {
+        this.props.deleteTag(noteId, targetTag);
     }
 }
 export default withStyles(styles)(SidebarComponent)
