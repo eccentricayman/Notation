@@ -31,14 +31,22 @@ class App extends React.Component{
       selectedNote: null,
       notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 0},
       {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 0}], //
-
+      currentNewId: 3,
     }
   }
-  addNote = (id, title, data, type) => {
-    this.setState(prevState => ({
-      notes: [...prevState.notes, {id: 2, title: title, data: data, type: type}]
+  addNote = async (title, data, type) => {
+    let id = this.state.currentNewId;
+    console.log(id);
+    await this.setState(prevState => ({
+      notes: [...prevState.notes, {id: id, title: title, data: data, type: type}],
     }));
-    console.log(this.state.notes);
+    //console.log(this.state.notes);
+    let noteIndex = this.state.notes.findIndex((note) => note.id === id);
+    //console.log(noteIndex);
+    id++;
+    console.log(id);
+    this.setState({selectedNote: this.state.notes[noteIndex], selectedNoteIndex: noteIndex, currentNewId: id})
+    //console.log(this.state.notes);
   }
 
   selectNote = (note, index) => this.setState({selectedNoteIndex: index, selectedNote: note});
@@ -46,13 +54,13 @@ class App extends React.Component{
   deleteNote = (note) => console.log("delete note");
 
   updateNote = (noteObject) => {
-    console.log(noteObject);
+    // console.log(noteObject);
     let notes = [...this.state.notes];
     const index = notes.findIndex((note) => note.id === noteObject.id);
     const noteToUpdate = {...notes[index]};
-    console.log('NOTE TO UPDATE');
-    console.log(noteToUpdate);
-    console.log(index);
+    // console.log('NOTE TO UPDATE');
+    // console.log(noteToUpdate);
+    // console.log(index);
     noteToUpdate.data = noteObject.data;
     noteToUpdate.title = noteObject.title;
     notes[index] = noteToUpdate;
@@ -60,7 +68,7 @@ class App extends React.Component{
   };
 	render(){
 	    //	if (this.props.authState == "signedIn") {
-      console.log(this.state);
+    console.log(this.state);
 		return (
 			<AmplifyAuthenticator usernameAlias="email">
                 <AmplifySignUp

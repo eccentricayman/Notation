@@ -131,7 +131,7 @@ class SidebarComponent extends React.Component{
             title = "New Note";
         };
         console.log('in newNote function');
-        this.props.addNote(title, 'abcdefghijklmnopqrstuvwxyz', newNotetype);
+        this.props.addNote(title, '', newNotetype);
         this.setState({title:null});
         this.closingNote();
 
