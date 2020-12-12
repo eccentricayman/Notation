@@ -26,12 +26,14 @@ class App extends React.Component{
         Add Themes (last feature) for aethetic purposes
       */
       fileID: null,
-      fileName: null,
+      title: null,
       selectedNoteIndex: null,
       selectedNote: null,
       notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 0},
       {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 0}], //
       currentNewId: 3,
+      //True for react Quill, False for React-Canvas, default is false
+      quill:true
     }
   }
   addNote = async (title, data, type) => {
@@ -108,6 +110,7 @@ class App extends React.Component{
                 
 				<div className="notation-container">
           <SidebarComponent
+            setNoteType={this.setNoteType}
             fileID={this.state.fileID}
             notes={this.state.notes}
             selectedNoteIndex={this.state.selectedNoteIndex}
@@ -116,6 +119,7 @@ class App extends React.Component{
             deleteNote={this.deleteNote}></SidebarComponent>
           { this.state.selectedNote ?
             <NoteComponent 
+              quill = {this.state.quill}
               selectedNote={this.state.selectedNote}
               selectedNoteIndex={this.state.selectedNoteIndex}
               notes={this.state.notes}
@@ -128,7 +132,14 @@ class App extends React.Component{
 			</AmplifyAuthenticator>
 		);
 		//}
-	}
+  }
+  
+  setNoteType = (newNotetype) =>{
+    var val = Boolean(newNotetype);
+    this.setState({
+      quill:val
+    });
+  }
 	/*
 	  componentDidMount = () =>{
 	  //Connect the database with this

@@ -25,9 +25,7 @@ class NotesComponent extends React.Component {
             brushColor:"#000000",
             brushRadius:"5",
             toggleGrid:false,
-            canvasColor:"rgba(150,150,150,.3)",
-            //True for react Quill, False for React-Canvas, default is false
-            quill:true
+            canvasColor:"rgba(150,150,150,.3)"
         };
 
     }
@@ -50,11 +48,11 @@ class NotesComponent extends React.Component {
         }
     }
     render(){
-        const {classes} = this.props;
+        const {classes, quill} = this.props;
         return (
             <div className={classes.editorContainer}>
                 {
-                    this.state.quill ?
+                    quill ?
                     <div className={classes.quillContainer}>
                         <ReactQuill 
                             value={this.state.data}
@@ -65,7 +63,7 @@ class NotesComponent extends React.Component {
 
 
                 {
-                    !this.state.quill ? 
+                    !quill ? 
                     <div className={classes.canvasContainer}>
                         <Button
                             title="Clear"
@@ -213,9 +211,6 @@ class NotesComponent extends React.Component {
     
     //End of toggle theme menu
 
-    theme = () => {
-        console.log("Theme");
-    }
     
     changeBrushColor = event => {
         this.setState(
@@ -259,6 +254,7 @@ class NotesComponent extends React.Component {
     undo = () =>{
         this.canvas.undo();
     }
+    
 }
 
 export default withStyles(styles)(NotesComponent);
