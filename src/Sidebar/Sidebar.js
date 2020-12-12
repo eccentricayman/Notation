@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles} from '@material-ui/core/styles';
 import styles from './styles';
 import List from '@material-ui/core/List';
@@ -16,6 +16,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { FilterNone } from '@material-ui/icons';
+import Amplify, { API, graphqlOperation, input } from 'aws-amplify'
+import { createNote, deleteNote } from '../graphql/mutations.js'
+
+
 
 
 class SidebarComponent extends React.Component{
@@ -58,8 +62,8 @@ class SidebarComponent extends React.Component{
                                 <FormControl component="fieldset">
                                 <FormLabel component="legend">Note Type: </FormLabel>
                                 <RadioGroup aria-label="noteType" name="noteType" onChange={this.handleNoteType} value={this.state.newNotetype}>
-                                    <FormControlLabel value={0} control={<Radio />} label="Quill" />
-                                    <FormControlLabel value={1} control={<Radio />} label="Canvas" />
+                                    <FormControlLabel value={1} control={<Radio />} label="Quill" />
+                                    <FormControlLabel value={0} control={<Radio />} label="Canvas" />
                                 </RadioGroup>
                                 </FormControl>
                             </DialogContent>
@@ -113,6 +117,8 @@ class SidebarComponent extends React.Component{
     }
     </List>
     */
+
+
     //Creates a blank new Note File
     addingNote = () => {
         this.setState({addingNote:!this.state.addingNote});
@@ -123,9 +129,18 @@ class SidebarComponent extends React.Component{
     updateFileName = (name) => {
         this.setState({title: name});
     }
-    newNote = (title,newNotetype) => {
+    newNote = async (title,newNotetype) => {
         //Insert database storing here
-        //this.setState({title:null, addingNote: false});
+        /*
+        try{
+            var inp = {id:"", title:title, type:newNotetype, data:"", tags:"",users:"" }
+            await API.graphql(graphqlOperation(createNote, {input:inp}));
+        }catch(err){
+            console.log("Error");
+        }
+        */
+        
+            //this.setState({title:null, addingNote: false});
         if (this.state.title === null){
             console.log('using default title')
             title = "New Note";
@@ -133,6 +148,7 @@ class SidebarComponent extends React.Component{
         console.log('in newNote function');
         this.props.addNote(title, '', newNotetype);
         this.setState({title:null});
+        this.setNoteType(newNotetype);
         this.closingNote();
 
     }
@@ -144,6 +160,9 @@ class SidebarComponent extends React.Component{
     }
     handleNoteType = (e) => {
         this.setState({newNotetype: Number(e.target.value)});
+    }
+    setNoteType = (newNotetype) =>{
+        this.props.setNoteType(newNotetype);
     }
 }
 export default withStyles(styles)(SidebarComponent)
