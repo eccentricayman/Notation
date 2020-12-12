@@ -24,9 +24,9 @@ class NotesComponent extends React.Component {
             //Theme menu
             anchorEl: null,
             //Theme values
-            lazyRadius:"1",
+            lazyRadius:1,
             brushColor:"#000000",
-            brushRadius:"5",
+            brushRadius:5,
             toggleGrid:false,
             canvasColor:"rgba(150,150,150,.3)"
         };
@@ -216,7 +216,7 @@ class NotesComponent extends React.Component {
                                 brushRadius={this.state.brushRadius}
                                 hideGrid={this.state.toggleGrid}
                                 gridColor={this.state.canvasColor}
-                                loadTimeOffset="0"
+                                loadTimeOffset={0}
                                 value={this.state.data}
                                 onChange={this.updateData}
                             /> 

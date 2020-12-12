@@ -16,6 +16,11 @@ const styles = theme => ({
   },
   addIcon: {
     marginRight: '2px',
+  },
+  shareIcon:{
+    position: "absolute",
+    right: "45px",
+    top: 'calc(50%-15px)',
       '&:hover': {
         color: 'blue'
       }

@@ -125,7 +125,8 @@ class SidebarComponent extends React.Component{
                                     selectNote={this.selectNote}
                                     deleteNote={this.deleteNote}
                                     addTag={this.addTag}
-                                    deleteTag={this.deleteTag} />
+                                    deleteTag={this.deleteTag}
+                                    shareNote={this.shareNote} />
                                 <Divider></Divider>
                             </div>
                         );
@@ -202,12 +203,12 @@ class SidebarComponent extends React.Component{
         this.props.setNoteType(newNotetype);
     }
     addTag = (noteId, newTag) => {
-        this.setState({allTags: [...this.state.allTags, newTag]});
+        this.setState({allTags: [...new Set([...this.state.allTags, newTag])]});
         this.props.addTag(noteId, newTag);
     }
 
     deleteTag = (noteId, targetTag) => {
-        this.setState({allTags: this.state.allTags.filter((tag) => tag !== targetTag)});
+        //this.setState({allTags: this.state.allTags.filter((tag) => tag !== targetTag)});
         this.props.deleteTag(noteId, targetTag);
     }
 
@@ -232,6 +233,9 @@ class SidebarComponent extends React.Component{
             
         }
         return listOfNotes;
+    }
+    shareNote = (note, user) => {
+        this.props.shareNote(note, user);
     }
 }
 export default withStyles(styles)(SidebarComponent)

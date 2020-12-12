@@ -15,6 +15,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import Chip from '@material-ui/core/Chip';
 import {removeHTMLTags} from '../helpers.js';
+import Icon from '@material-ui/core/Icon';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -27,6 +29,8 @@ class SidebarItemComponent extends React.Component{
             deleteDialogOpen: false,
             addTagDialogOpen: false,
             currentTagName: null,
+            shareDialogOpen: false,
+            shareUser: "",
         };
     }
 
@@ -68,6 +72,21 @@ class SidebarItemComponent extends React.Component{
 
     updateTagName = (tagName) => {
         this.setState({currentTagName: tagName})
+    }
+
+    shareOpen = () => {
+        this.setState({shareDialogOpen: true});
+    }
+    
+    shareClose = () => {
+        this.setState({shareDialogOpen: false, shareUser:""});
+    }
+
+    updateShareUser = (user) =>{
+        this.setState({shareUser:user});
+    }
+    shareNote = (note,user) => {
+        this.props.shareNote(note,user);
     }
     render(){
         const {index, note, classes, selectedNoteIndex} = this.props;
@@ -113,6 +132,50 @@ class SidebarItemComponent extends React.Component{
                                     </div>
                                 }></ListItemText>
                     </div>
+                    <Icon 
+                        className={classes.shareIcon}
+                        onClick={() => {
+                            this.shareOpen();
+                        }} ><i class="fas fa-share"></i>
+                    </Icon>
+                    <Dialog
+                        open={this.state.shareDialogOpen}
+                        TransitionComponent={Transition}
+                        keepMounted
+                        aria-labelledby="share-dialog-slide-title"
+                        aria-describedby="share-dialog-slide-description"
+                        onClose={this.shareClose}
+                        fullWidth="md"
+                    >
+                        <DialogTitle id="share-dialog-slide-title">Share {note.title}</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="share-dialog-slide-description">
+                                Share with People
+                            </DialogContentText>
+                            <TextField
+                                    autoFocus
+                                    margin="dense"
+                                    id="share User"
+                                    label="Share User"
+                                    type="text"
+                                    fullWidth
+                                    defaultValue=""
+                                    onChange={(e) =>this.updateShareUser(e.target.value)}
+                                />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.shareClose} color="primary">
+                                Cancel
+                            </Button>
+                            <Button onClick={() => {
+                                this.shareNote(note, this.state.shareUser);
+                                this.shareClose();
+                            }} color="primary">
+                                Submit
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
+
                     <DeleteIcon
                         className={classes.deleteIcon}
                         onClick={this.dialogOpen}>
