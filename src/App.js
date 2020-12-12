@@ -79,6 +79,7 @@ class App extends React.Component{
   };
 	render(){
 	    //	if (this.props.authState == "signedIn") {
+      //bigdickbal
     console.log(this.state);
 		return (
 			<AmplifyAuthenticator usernameAlias="email">
