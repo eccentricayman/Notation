@@ -12,19 +12,7 @@
       "AmplifyAppId": "d1449m6dg5y8gc"
     },
     "categories": {
-<<<<<<< HEAD
-      "function": {
-        "notation0cfab039CustomMessage": {
-          "REDIRECTURL": "",
-          "EMAILSUBJECT": "Notation: Verify Email",
-          "EMAILMESSAGE": "Verify your email for Notation by clicking this link: "
-        }
-      },
       "auth": {
-        "notation0cfab039": {},
-=======
-      "auth": {
->>>>>>> dev
         "Notation": {}
       }
     }
