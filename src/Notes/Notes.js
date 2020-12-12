@@ -11,6 +11,9 @@ import { Block } from '@material-ui/icons';
 import debounce from '../helpers.js';
 import ReactQuill from 'react-quill';
 
+//import EditorToolbar, {modules, formats } from "./QuillToobar.js";
+import 'react-quill/dist/quill.snow.css';
+
 class NotesComponent extends React.Component {
     constructor(){
         super();
@@ -27,7 +30,32 @@ class NotesComponent extends React.Component {
             toggleGrid:false,
             canvasColor:"rgba(150,150,150,.3)"
         };
-
+        this.modules = {
+            toolbar: [
+              [{ 'font': [] }],
+              [{ 'size': ['small', false, 'large', 'huge'] }],
+              ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
+              [{'script': 'sub'}, {'script': 'super'}],
+              [{'list': 'ordered'}, {'list': 'bullet'},
+              {'indent': '-1'}, {'indent': '+1'}],
+              [{ 'align': [] }],
+              [{ 'color': [] }, { 'background': [] }],
+              ['link', 'image', 'video'],
+              ['clean']
+            ]
+        };
+    
+        this.formats = [
+            'font',
+            'size',
+            'bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block',
+            'script', 'sub', 'super',
+            'list', 'ordered', 'bullet', 'indent',
+            'align',
+            'color', 'background',
+            'link', 'image', 'video'
+          ];
+        
     }
     
     componentDidMount = () => {
@@ -47,6 +75,7 @@ class NotesComponent extends React.Component {
             });
         }
     }
+    
     render(){
         const {classes, quill} = this.props;
         return (
@@ -54,9 +83,13 @@ class NotesComponent extends React.Component {
                 {
                     quill ?
                     <div className={classes.quillContainer}>
+                        {/* <EditorToolbar /> */}
                         <ReactQuill 
                             value={this.state.data}
-                            onChange={this.updateData}></ReactQuill> 
+                            onChange={this.updateData}
+                            modules={this.modules}
+                            formats={this.formats}
+                            theme={"snow"}/>
                     </div>
                         : null
                 }

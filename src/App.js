@@ -109,6 +109,9 @@ class App extends React.Component{
                 <AmplifySignIn slot="sign-in" usernameAlias="email" />
                 
 				<div className="notation-container">
+          <div id="side-menu">
+            <AmplifySignOut/>
+          </div>
           <SidebarComponent
             setNoteType={this.setNoteType}
             fileID={this.state.fileID}
@@ -126,7 +129,7 @@ class App extends React.Component{
               updateNote={this.updateNote}></NoteComponent> :
               <div className="none-selected">Please choose a note to view or create a new one!</div>
           }
-                    <AmplifySignOut/>
+            
 				</div>
                 
 			</AmplifyAuthenticator>

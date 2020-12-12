@@ -31,3 +31,22 @@ html, body{
   text-align: center;
   font: 3rem;
 }
+#side-menu{
+  position: absolute;
+  height: 100px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 0 5px 5px;
+  top: -80px;
+  right: 5px;
+  transition: 0.3s;
+  background: #57068C;
+  z-index: 99;
+}
+
+#side-menu:hover {
+  top: 0px;
+}
