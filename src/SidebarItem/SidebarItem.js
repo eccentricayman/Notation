@@ -4,7 +4,9 @@ import styles from './styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -23,6 +25,8 @@ class SidebarItemComponent extends React.Component{
         super();
         this.state = {
             deleteDialogOpen: false,
+            addTagDialogOpen: false,
+            currentTagName: null,
         };
     }
 
@@ -46,8 +50,28 @@ class SidebarItemComponent extends React.Component{
         this.props.deleteTag(noteId, targetTag);
     }
 
+    addTag = (noteId, newTag) => {
+        this.props.addTag(noteId, newTag);
+    }
+
+    deleteTag = (noteId, targetTag) => {
+        this.props.deleteTag(noteId, targetTag);
+    }
+
+    tagDialogOpen = () => {
+        this.setState({addTagDialogOpen: true});
+    }
+
+    tagDialogClose = () => {
+        this.setState({addTagDialogOpen: false})
+    }
+
+    updateTagName = (tagName) => {
+        this.setState({currentTagName: tagName})
+    }
     render(){
         const {index, note, classes, selectedNoteIndex} = this.props;
+        //console.log(this.state);
         return(
             <div key={index}>
                 <ListItem 
@@ -68,7 +92,26 @@ class SidebarItemComponent extends React.Component{
                                 secondary={removeHTMLTags(note.data.substring(0, 20)) + '...'}>
 
                             </ListItemText>
-                        
+                            <ListItemText
+                                primary={
+                                    <div className={classes.itemTagSection}>
+                                        <AddIcon
+                                            className={classes.addIcon}
+                                            onClick={this.tagDialogOpen}>
+                                        </AddIcon>
+                                        {note.tags.map((tag, index) => {
+                                            return(
+                                                <Chip
+                                                    className={classes.tag}
+                                                    key={index}
+                                                    size="small"
+                                                    label={tag}
+                                                    onDelete={() => this.deleteTag(note.id, tag)}
+                                                />
+                                            )
+                                        })}
+                                    </div>
+                                }></ListItemText>
                     </div>
                     <DeleteIcon
                         className={classes.deleteIcon}
@@ -100,20 +143,41 @@ class SidebarItemComponent extends React.Component{
                             </Button>
                         </DialogActions>
                     </Dialog>
+                    <Dialog 
+                        open={this.state.addTagDialogOpen} 
+                        onClose={this.tagDialogClose}
+                        TransitionComponent={Transition}
+                        keepMounted 
+                        aria-labelledby="tag-dialog-title"
+                        aria-describedby="tag-dialog-slide-description">
+                        <DialogTitle id="tag-dialog-title">Add a tag!</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Associate this note with any tags to help you organize your notes!
+                            </DialogContentText>
+                            <TextField
+                                autoFocus
+                                margin="dense"
+                                id="tagName"
+                                label="New Tag"
+                                type="text"
+                                fullWidth
+                                onChange={(e)=>this.updateTagName(e.target.value)}
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.tagDialogClose} color="primary">
+                                Cancel
+                            </Button>
+                            <Button onClick={()=>{
+                                this.addTag(note.id, this.state.currentTagName);
+                                this.tagDialogClose();
+                            }} color="primary">
+                                Add Tag
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                 </ListItem>
-                <div className={classes.itemTagSection}>
-                        {note.tags.map((tag, index) => {
-                            return(
-                                <Chip
-                                    className={classes.tag}
-                                    key={index}
-                                    size="small"
-                                    label={tag}
-                                    onDelete={() => this.deleteTag(note.id, tag)}
-                                />
-                            )
-                        })}
-                </div>
             </div>
         
         );

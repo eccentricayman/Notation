@@ -118,6 +118,21 @@ class App extends React.Component{
         this.setState({notes: notes});
     };
     
+    addTag = (noteId, newTag) => {
+      console.log(noteId, newTag);
+      let notes = [...this.state.notes];
+      console.log(notes);
+      const index = notes.findIndex((note) => note.id === noteId);
+      console.log(index);
+      console.log(this.state.notes[index]);
+      const noteToUpdate = {...this.state.notes[index]};
+      console.log(noteToUpdate);
+      const updatedTags = [...noteToUpdate.tags, newTag];
+      noteToUpdate.tags = updatedTags;
+      notes[index] = noteToUpdate;
+      this.setState({notes: notes});
+    }
+
     deleteTag = (noteId,targetTag) => {
       let notes = [...this.state.notes];
       const index = notes.findIndex((note) => note.id === noteId);
@@ -170,6 +185,7 @@ class App extends React.Component{
             addNote={this.addNote}
             selectNote={this.selectNote}
             deleteNote={this.deleteNote}
+            addTag={this.addTag}
             deleteTag={this.deleteTag}></SidebarComponent>
           { this.state.selectedNote ?
             <NoteComponent 

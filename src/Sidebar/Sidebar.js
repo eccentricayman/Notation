@@ -15,6 +15,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import { FilterNone } from '@material-ui/icons';
 import Amplify, { API, graphqlOperation, input } from 'aws-amplify'
 import { createNote, deleteNote } from '../graphql/mutations.js'
@@ -29,13 +30,47 @@ class SidebarComponent extends React.Component{
             addingNote: false,
             title: null,
             newNotetype: 0,
+            searchedTag: [],
+            allTags: [],
         };
     }
+    componentDidMount = () => {
+        let tagList = [];
+        let notes = this.props.notes;
+        //console.log(notes);
+        for (let i = 0; i < notes.length; i++) {
+            tagList = [...tagList, ...notes[i].tags];
+        }
+        const uniqueTags = [...new Set(tagList)];
+        this.setState({filteredNotes: this.props.notes});
+        this.setState({allTags: uniqueTags});
+    }
+
     render(){
         const {notes, classes, fileID, selectedNoteIndex} = this.props;
         console.log(this.state);
         return(
             <div className={classes.sidebarContainer}>
+                <div className={classes.filterContainer}>
+                    <Autocomplete
+                        multiple
+                        id="tag-search"
+                        options={this.state.allTags}
+                        getOptionLabel={(option) => option}
+                        filterSelectedOptions
+                        onChange={(e, selectedValue) => {
+                            this.setState({searchedTag: selectedValue});
+                        }}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                variant="outlined"
+                                label="Tag Filter"
+                                placeholder="Tags"
+                            />
+                        )}
+                    />
+                </div>
                 <Button
                     onClick={this.addingNote}
                     className={classes.addingNote}>{"Add Note"}
@@ -79,7 +114,7 @@ class SidebarComponent extends React.Component{
                     </div> : null
                 }
                 <List>
-                    {notes.map((note, index) => {
+                    {this.filterNotes(this.state.searchedTag).map((note, index) => {
                         return(
                             <div key={index}>
                                 <SidebarItemComponent
@@ -89,13 +124,13 @@ class SidebarComponent extends React.Component{
                                     selectedNoteIndex={selectedNoteIndex}
                                     selectNote={this.selectNote}
                                     deleteNote={this.deleteNote}
+                                    addTag={this.addTag}
                                     deleteTag={this.deleteTag} />
                                 <Divider></Divider>
                             </div>
                         );
                     })}
                 </List>
-                <div className={classes.verticalLine}></div>
             </div>
         );
     }
@@ -166,8 +201,37 @@ class SidebarComponent extends React.Component{
     setNoteType = (newNotetype) =>{
         this.props.setNoteType(newNotetype);
     }
+    addTag = (noteId, newTag) => {
+        this.setState({allTags: [...this.state.allTags, newTag]});
+        this.props.addTag(noteId, newTag);
+    }
+
     deleteTag = (noteId, targetTag) => {
+        this.setState({allTags: this.state.allTags.filter((tag) => tag !== targetTag)});
         this.props.deleteTag(noteId, targetTag);
+    }
+
+    filterNotes = (selectedValues) => {
+        console.log("in filtered Notes");
+        console.log(selectedValues);
+        if (selectedValues.length === 0){
+            return this.props.notes;
+        }
+        let listOfNotes = [];
+        let notes = this.props.notes;
+        console.log(notes);
+        for (let i = 0; i < notes.length; i++) {
+            for (let j = 0; j < selectedValues.length; j++) {
+                if (!(notes[i].tags).includes(selectedValues[j])){
+                    break;
+                }
+                if (j === selectedValues.length - 1){
+                    listOfNotes.push(notes[i]);
+                } 
+            }
+            
+        }
+        return listOfNotes;
     }
 }
 export default withStyles(styles)(SidebarComponent)

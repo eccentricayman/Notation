@@ -7,6 +7,9 @@ const styles = theme => ({
     width: '300px',
     boxShadow: '0px 0px 2px black'
   },
+  filterContainer: {
+    padding: '7px',
+  },
   addingNote: {
     color: 'white',
     '&:hover': {

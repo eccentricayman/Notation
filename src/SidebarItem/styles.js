@@ -1,5 +1,3 @@
-import { Block } from "@material-ui/icons";
-
 const styles = theme => ({
   listItem: {
     cursor: 'pointer',
@@ -16,11 +14,16 @@ const styles = theme => ({
         color: 'red'
       }
   },
+  addIcon: {
+    marginRight: '2px',
+      '&:hover': {
+        color: 'blue'
+      }
+  },
   itemTagSection: {
     display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
-    padding: '0 0 2% 2%'
   },
   tag: {
     marginRight: '3px',
