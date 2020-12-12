@@ -155,13 +155,9 @@ class SidebarComponent extends React.Component{
     selectNote = (note, index) =>{
         this.props.selectNote(note,index);
     }
-<<<<<<< HEAD
-    deleteNote = () => {
-        console.log("Delete Note")
-=======
+
     deleteNote = (note) => {
         this.props.deleteNote(note);
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
     }
     handleNoteType = (e) => {
         this.setState({newNotetype: Number(e.target.value)});
