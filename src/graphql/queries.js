@@ -9,11 +9,7 @@ export const getNote = /* GraphQL */ `
       type
       data
       tags
-<<<<<<< HEAD
-      users
-=======
       owner
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
       createdAt
       updatedAt
     }
@@ -32,11 +28,7 @@ export const listNotes = /* GraphQL */ `
         type
         data
         tags
-<<<<<<< HEAD
-        users
-=======
         owner
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         createdAt
         updatedAt
       }

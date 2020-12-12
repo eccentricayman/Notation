@@ -30,7 +30,6 @@ html, body{
 .none-selected{
   text-align: center;
   font: 3rem;
-<<<<<<< HEAD
 }
 #side-menu{
   position: absolute;
@@ -50,6 +49,4 @@ html, body{
 
 #side-menu:hover {
   top: 0px;
-=======
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
 }

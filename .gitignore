@@ -41,9 +41,6 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
-<<<<<<< HEAD
-.secret-*
-=======
 .secret-*
 
 #awsamplifyjs
@@ -53,4 +50,3 @@ project-config.json
 aws-exports.*
 amplify/backend/function/*/src/node_modules/
 amplify/backend/function/*/dist/
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
