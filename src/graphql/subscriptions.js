@@ -9,7 +9,7 @@ export const onCreateNote = /* GraphQL */ `
       type
       data
       tags
-      users
+      owner
       createdAt
       updatedAt
     }
@@ -23,7 +23,7 @@ export const onUpdateNote = /* GraphQL */ `
       type
       data
       tags
-      users
+      owner
       createdAt
       updatedAt
     }
@@ -37,7 +37,7 @@ export const onDeleteNote = /* GraphQL */ `
       type
       data
       tags
-      users
+      owner
       createdAt
       updatedAt
     }
