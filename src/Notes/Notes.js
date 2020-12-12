@@ -11,9 +11,12 @@ import { Block } from '@material-ui/icons';
 import debounce from '../helpers.js';
 import ReactQuill from 'react-quill';
 
+<<<<<<< HEAD
 //import EditorToolbar, {modules, formats } from "./QuillToobar.js";
 import 'react-quill/dist/quill.snow.css';
 
+=======
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
 class NotesComponent extends React.Component {
     constructor(){
         super();
@@ -30,6 +33,7 @@ class NotesComponent extends React.Component {
             toggleGrid:false,
             canvasColor:"rgba(150,150,150,.3)"
         };
+<<<<<<< HEAD
         this.modules = {
             toolbar: [
               [{ 'font': [] }],
@@ -56,6 +60,9 @@ class NotesComponent extends React.Component {
             'link', 'image', 'video'
           ];
         
+=======
+
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
     }
     
     componentDidMount = () => {
@@ -75,7 +82,10 @@ class NotesComponent extends React.Component {
             });
         }
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
     render(){
         const {classes, quill} = this.props;
         return (
@@ -83,6 +93,7 @@ class NotesComponent extends React.Component {
                 {
                     quill ?
                     <div className={classes.quillContainer}>
+<<<<<<< HEAD
                         {/* <EditorToolbar /> */}
                         <ReactQuill 
                             value={this.state.data}
@@ -90,6 +101,11 @@ class NotesComponent extends React.Component {
                             modules={this.modules}
                             formats={this.formats}
                             theme={"snow"}/>
+=======
+                        <ReactQuill 
+                            value={this.state.data}
+                            onChange={this.updateData}></ReactQuill> 
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
                     </div>
                         : null
                 }
