@@ -2,13 +2,7 @@ type Note @model {
   id: ID!
   title: String!
   type: Boolean!
-<<<<<<< HEAD
-  data: String!
-  tags: [String]
-  users: [String!]!
-=======
   data: String
   tags: [String!]!
   owner: String!
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
 }
