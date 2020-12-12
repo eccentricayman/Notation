@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SidebarComponent from './Sidebar/Sidebar';
 import NoteComponent from './Notes/Notes';
 import './App.css';
@@ -6,6 +6,10 @@ import './App.css';
 //import Login from './components/auth/Login.js';
 
 import { AmplifyAuthenticator, AmplifySignUp, AmplifySignIn, AmplifySignOut } from '@aws-amplify/ui-react';
+import { API, Auth } from 'aws-amplify';
+import { listNotes, getNote } from './graphql/queries';
+import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
+
 
 /*
   function App() {
@@ -36,69 +40,87 @@ class App extends React.Component{
       quill:true
     }
   }
-  addNote = async (title, data, type) => {
-    let id = this.state.currentNewId;
-    console.log(id);
-    await this.setState(prevState => ({
-      notes: [...prevState.notes, {id: id, title: title, data: data, type: type}],
-    }));
-    //console.log(this.state.notes);
-    let noteIndex = this.state.notes.findIndex((note) => note.id === id);
-    //console.log(noteIndex);
-    id++;
-    console.log(id);
-    this.setState({selectedNote: this.state.notes[noteIndex], selectedNoteIndex: noteIndex, currentNewId: id})
-    //console.log(this.state.notes);
-    if (!type && !this.state.quill){
-      this.noteComponent.clear();
-    }
-  }
+  // addNote = async (title, data, type) => {
+  //   let id = this.state.currentNewId;
+  //   console.log(id);
+  //   await this.setState(prevState => ({
+  //     notes: [...prevState.notes, {id: id, title: title, data: data, type: type}],
+  //   }));
+  //   //console.log(this.state.notes);
+  //   let noteIndex = this.state.notes.findIndex((note) => note.id === id);
+  //   //console.log(noteIndex);
+  //   id++;
+  //   console.log(id);
+  //   this.setState({selectedNote: this.state.notes[noteIndex], selectedNoteIndex: noteIndex, currentNewId: id})
+  //   //console.log(this.state.notes);
+  //   if (!type && !this.state.quill){
+  //     this.noteComponent.clear();
+  //   }
 
-  selectNote = (note, index) => {
-    this.setState({selectedNoteIndex: index, selectedNote: note, quill: note.type});
-    if (!note.type && !this.state.quill){
-      this.noteComponent.clear();
+    //need to figure out how to get notes to use this function
+    fetchNotes = async () => {
+        const apiData = await API.graphql({ query: listNotes });
+        this.setState({notes: [...this.state.notes, apiData]});
     }
-  }
-  deleteNote = async (note) => {
-    const noteIndex = this.state.notes.indexOf(note);
-    await this.setState({
-      notes: this.state.notes.filter( (aNote) => aNote !== note)
-    });
-    if(this.state.selectedNoteIndex === noteIndex){
-      this.setState({selectedNoteIndex: null, selectedNote: null});
-    } 
     
-  }
-
-  updateNote = (noteObject) => {
-    // console.log(noteObject);
-    let notes = [...this.state.notes];
-    const index = notes.findIndex((note) => note.id === noteObject.id);
-    const noteToUpdate = {...notes[index]};
-    // console.log('NOTE TO UPDATE');
-    // console.log(noteToUpdate);
-    // console.log(index);
-    noteToUpdate.data = noteObject.data;
-    noteToUpdate.title = noteObject.title;
-    noteToUpdate.type = noteObject.type;
-    notes[index] = noteToUpdate;
-    this.setState({notes: notes});
-  };
-
-  deleteTag = (noteId,targetTag) => {
-    let notes = [...this.state.notes];
-    const index = notes.findIndex((note) => note.id === noteId);
-    const noteToUpdate = {...this.state.notes[index]};
-    const newTags = noteToUpdate.tags.filter( (tag) => tag !== targetTag);
-    noteToUpdate.tags = newTags;
-    notes[index] = noteToUpdate;
-    this.setState({notes: notes});
-  }
-
+	addNote = async (title, data, type) => {
+        let id = this.state.currentNewId;
+        console.log(id);
+        //let note = {id: "%d"%id, title: title, data: data, type: type, tags: [], owner: Auth.user.username};
+        let note = {id: id, title: title, data: data, type: type, tags: [], owner: Auth.user.username};
+        await this.setState(prevState => ({
+            notes: [...prevState.notes, note],
+        }));
+        
+        //await API.graphql({ query: createNoteMutation, variables: { input: note } });
+        
+        //console.log(this.state.notes);
+        let noteIndex = this.state.notes.findIndex((note) => note.id === id);
+        //console.log(noteIndex);
+        id++;
+        console.log(id);
+        this.setState({selectedNote: this.state.notes[noteIndex], selectedNoteIndex: noteIndex, currentNewId: id});
+        //console.log(this.state.notes);
+        if (!type && !this.state.quill){
+            this.noteComponent.clear();
+        }
+    }
+    
+    selectNote = (note, index) => {
+        this.setState({selectedNoteIndex: index, selectedNote: note, quill: note.type});
+        if (!note.type && !this.state.quill){
+            this.noteComponent.clear();
+        }
+    }
+    deleteNote = async (note) => {
+        const noteIndex = this.state.notes.indexOf(note);
+        await this.setState({
+            notes: this.state.notes.filter( (aNote) => aNote !== note)
+        });
+        if(this.state.selectedNoteIndex === noteIndex){
+            this.setState({selectedNoteIndex: null, selectedNote: null});
+        } 
+        
+    }
+    
+    updateNote = (noteObject) => {
+        // console.log(noteObject);
+        let notes = [...this.state.notes];
+        const index = notes.findIndex((note) => note.id === noteObject.id);
+        const noteToUpdate = {...notes[index]};
+        // console.log('NOTE TO UPDATE');
+        // console.log(noteToUpdate);
+        // console.log(index);
+        noteToUpdate.data = noteObject.data;
+        noteToUpdate.title = noteObject.title;
+        noteToUpdate.type = noteObject.type;
+        notes[index] = noteToUpdate;
+        this.setState({notes: notes});
+    };
+    
 	render(){
 	    //	if (this.props.authState == "signedIn") {
-    console.log(this.state);
+        console.log(this.state);
 		return (
 			<AmplifyAuthenticator usernameAlias="email">
                 <AmplifySignUp
@@ -156,14 +178,14 @@ class App extends React.Component{
 			</AmplifyAuthenticator>
 		);
 		//}
-  }
-  
-  setNoteType = (newNotetype) =>{
-    var val = Boolean(newNotetype);
-    this.setState({
-      quill:val
-    });
-  }
+    }
+    
+    setNoteType = (newNotetype) =>{
+        var val = Boolean(newNotetype);
+        this.setState({
+            quill:val
+        });
+    }
 	/*
 	  componentDidMount = () =>{
 	  //Connect the database with this
