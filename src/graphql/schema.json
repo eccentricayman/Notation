@@ -135,6 +135,7 @@
           "description" : null,
           "args" : [ ],
           "type" : {
+<<<<<<< HEAD
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
@@ -142,6 +143,11 @@
               "name" : "String",
               "ofType" : null
             }
+=======
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -150,6 +156,7 @@
           "description" : null,
           "args" : [ ],
           "type" : {
+<<<<<<< HEAD
             "kind" : "LIST",
             "name" : null,
             "ofType" : {
@@ -165,6 +172,8 @@
           "description" : null,
           "args" : [ ],
           "type" : {
+=======
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
@@ -184,6 +193,24 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
+<<<<<<< HEAD
+=======
+          "name" : "owner",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
           "name" : "createdAt",
           "description" : null,
           "args" : [ ],
@@ -340,7 +367,11 @@
           },
           "defaultValue" : null
         }, {
+<<<<<<< HEAD
           "name" : "users",
+=======
+          "name" : "owner",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -988,6 +1019,7 @@
           "name" : "data",
           "description" : null,
           "type" : {
+<<<<<<< HEAD
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
@@ -995,12 +1027,18 @@
               "name" : "String",
               "ofType" : null
             }
+=======
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
           },
           "defaultValue" : null
         }, {
           "name" : "tags",
           "description" : null,
           "type" : {
+<<<<<<< HEAD
             "kind" : "LIST",
             "name" : null,
             "ofType" : {
@@ -1014,6 +1052,8 @@
           "name" : "users",
           "description" : null,
           "type" : {
+=======
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "kind" : "NON_NULL",
             "name" : null,
             "ofType" : {
@@ -1031,6 +1071,22 @@
             }
           },
           "defaultValue" : null
+<<<<<<< HEAD
+=======
+        }, {
+          "name" : "owner",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         } ],
         "interfaces" : null,
         "enumValues" : null,
@@ -1077,7 +1133,11 @@
           },
           "defaultValue" : null
         }, {
+<<<<<<< HEAD
           "name" : "users",
+=======
+          "name" : "owner",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1176,6 +1236,7 @@
             "kind" : "LIST",
             "name" : null,
             "ofType" : {
+<<<<<<< HEAD
               "kind" : "SCALAR",
               "name" : "String",
               "ofType" : null
@@ -1189,6 +1250,8 @@
             "kind" : "LIST",
             "name" : null,
             "ofType" : {
+=======
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
               "kind" : "NON_NULL",
               "name" : null,
               "ofType" : {
@@ -1199,6 +1262,18 @@
             }
           },
           "defaultValue" : null
+<<<<<<< HEAD
+=======
+        }, {
+          "name" : "owner",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         } ],
         "interfaces" : null,
         "enumValues" : null,
@@ -1265,7 +1340,11 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
+<<<<<<< HEAD
         "name" : "ModelFloatInput",
+=======
+        "name" : "ModelIntInput",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1273,7 +1352,11 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+<<<<<<< HEAD
             "name" : "Float",
+=======
+            "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "ofType" : null
           },
           "defaultValue" : null
@@ -1282,7 +1365,11 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+<<<<<<< HEAD
             "name" : "Float",
+=======
+            "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "ofType" : null
           },
           "defaultValue" : null
@@ -1291,7 +1378,11 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+<<<<<<< HEAD
             "name" : "Float",
+=======
+            "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "ofType" : null
           },
           "defaultValue" : null
@@ -1300,7 +1391,11 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+<<<<<<< HEAD
             "name" : "Float",
+=======
+            "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "ofType" : null
           },
           "defaultValue" : null
@@ -1309,7 +1404,11 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+<<<<<<< HEAD
             "name" : "Float",
+=======
+            "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "ofType" : null
           },
           "defaultValue" : null
@@ -1318,7 +1417,11 @@
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
+<<<<<<< HEAD
             "name" : "Float",
+=======
+            "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
             "ofType" : null
           },
           "defaultValue" : null
@@ -1330,7 +1433,11 @@
             "name" : null,
             "ofType" : {
               "kind" : "SCALAR",
+<<<<<<< HEAD
               "name" : "Float",
+=======
+              "name" : "Int",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
               "ofType" : null
             }
           },
@@ -1358,6 +1465,7 @@
         "enumValues" : null,
         "possibleTypes" : null
       }, {
+<<<<<<< HEAD
         "kind" : "SCALAR",
         "name" : "Float",
         "description" : "Built-in Float",
@@ -1369,98 +1477,7 @@
       }, {
         "kind" : "INPUT_OBJECT",
         "name" : "ModelIntInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "le",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "lt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "ge",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "gt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "between",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "Int",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeExists",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeType",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ModelAttributeTypes",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
+=======
         "kind" : "ENUM",
         "name" : "ModelSortDirection",
         "description" : null,
@@ -1478,6 +1495,158 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         } ],
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelFloatInput",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+<<<<<<< HEAD
+            "name" : "Int",
+=======
+            "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+<<<<<<< HEAD
+            "name" : "Int",
+=======
+            "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "le",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+<<<<<<< HEAD
+            "name" : "Int",
+=======
+            "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "lt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+<<<<<<< HEAD
+            "name" : "Int",
+=======
+            "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ge",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+<<<<<<< HEAD
+            "name" : "Int",
+=======
+            "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "gt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+<<<<<<< HEAD
+            "name" : "Int",
+=======
+            "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "between",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+<<<<<<< HEAD
+              "name" : "Int",
+=======
+              "name" : "Float",
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeExists",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeType",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "ModelAttributeTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+<<<<<<< HEAD
+        "kind" : "ENUM",
+        "name" : "ModelSortDirection",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : [ {
+          "name" : "ASC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "DESC",
+          "description" : null,
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        } ],
+=======
+        "kind" : "SCALAR",
+        "name" : "Float",
+        "description" : "Built-in Float",
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : null,
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
@@ -2313,6 +2482,26 @@
         "onFragment" : false,
         "onField" : false
       }, {
+<<<<<<< HEAD
+=======
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         "name" : "aws_auth",
         "description" : "Directs the schema to enforce authorization on a field",
         "locations" : [ "FIELD_DEFINITION" ],
@@ -2355,6 +2544,7 @@
         "onFragment" : false,
         "onField" : false
       }, {
+<<<<<<< HEAD
         "name" : "deprecated",
         "description" : null,
         "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
@@ -2372,6 +2562,8 @@
         "onFragment" : false,
         "onField" : false
       }, {
+=======
+>>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
         "name" : "aws_oidc",
         "description" : "Tells the service this field/object has access authorized by an OIDC token.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
