@@ -24,6 +24,14 @@ yarn-error.log*
 
 .vscode/
 
+#awsamplifyjs
+amplify/\#current-cloud-backend
+aws-info.json
+project-config.json
+aws-exports.*
+amplify/backend/function/*/src/node_modules/
+amplify/backend/function/*/dist/
+
 #amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -41,11 +49,7 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
-<<<<<<< HEAD
 .secret-*
-=======
-.secret-*
-
 #awsamplifyjs
 amplify/\#current-cloud-backend
 aws-info.json
@@ -53,4 +57,3 @@ project-config.json
 aws-exports.*
 amplify/backend/function/*/src/node_modules/
 amplify/backend/function/*/dist/
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff

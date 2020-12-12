@@ -29,8 +29,8 @@ class App extends React.Component{
       title: null,
       selectedNoteIndex: null,
       selectedNote: null,
-      notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 0},
-      {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 0}], //
+      notes: [{id: 1, title: "Testing Title", data: "<p>abcdefghijklmnopqrstuvwxyz</p>", type: 1},
+      {id: 2, title: "Testing Title 2", data: "<p>Hello world</p>", type: 1}], //
       currentNewId: 3,
       //True for react Quill, False for React-Canvas, default is false
       quill:true
@@ -49,13 +49,18 @@ class App extends React.Component{
     console.log(id);
     this.setState({selectedNote: this.state.notes[noteIndex], selectedNoteIndex: noteIndex, currentNewId: id})
     //console.log(this.state.notes);
+    if (!type && !this.state.quill){
+      this.noteComponent.clear();
+    }
   }
 
-  selectNote = (note, index) => this.setState({selectedNoteIndex: index, selectedNote: note});
+	selectNote = (note, index) => {
+    this.setState({selectedNoteIndex: index, selectedNote: note, quill: note.type});
+    if (!note.type && !this.state.quill){
+      this.noteComponent.clear();
+    }
+  }
 
-<<<<<<< HEAD
-  deleteNote = (note) => console.log("delete note");
-=======
   deleteNote = async (note) => {
     const noteIndex = this.state.notes.indexOf(note);
     await this.setState({
@@ -66,7 +71,6 @@ class App extends React.Component{
     } 
     
   }
->>>>>>> 92434eff0623ed4dd702441fa7961d272a1fdbff
 
   updateNote = (noteObject) => {
     // console.log(noteObject);
@@ -78,6 +82,7 @@ class App extends React.Component{
     // console.log(index);
     noteToUpdate.data = noteObject.data;
     noteToUpdate.title = noteObject.title;
+    noteToUpdate.type = noteObject.type;
     notes[index] = noteToUpdate;
     this.setState({notes: notes});
   };
@@ -123,6 +128,7 @@ class App extends React.Component{
             deleteNote={this.deleteNote}></SidebarComponent>
           { this.state.selectedNote ?
             <NoteComponent 
+              ref={noteComponent =>this.noteComponent = noteComponent}
               quill = {this.state.quill}
               selectedNote={this.state.selectedNote}
               selectedNoteIndex={this.state.selectedNoteIndex}

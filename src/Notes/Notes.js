@@ -63,6 +63,7 @@ class NotesComponent extends React.Component {
             data: this.props.selectedNote.data,
             fileName: this.props.selectedNote.title,
             fileID: this.props.selectedNote.id,
+            type: this.props.selectedNote.type
         });
     }
 
@@ -72,6 +73,7 @@ class NotesComponent extends React.Component {
                 data: this.props.selectedNote.data,
                 fileName: this.props.selectedNote.title,
                 fileID: this.props.selectedNote.id,
+                type: this.props.selectedNote.type
             });
         }
     }
@@ -200,6 +202,11 @@ class NotesComponent extends React.Component {
                                 </div>
                             </div>
                         </Popover>
+                        <Button
+                            title="Load"
+                            onClick={this.load}
+                            className={classes.icon}><i class="far fa-save"></i>
+                        </Button>
                         <div className={classes.editor}>
                             <CanvasDraw ref={canvasDraw =>this.canvas = canvasDraw} 
                                 canvasWidth="100%" 
@@ -209,6 +216,9 @@ class NotesComponent extends React.Component {
                                 brushRadius={this.state.brushRadius}
                                 hideGrid={this.state.toggleGrid}
                                 gridColor={this.state.canvasColor}
+                                loadTimeOffset="0"
+                                value={this.state.data}
+                                onChange={this.updateData}
                             /> 
                         </div>
                     </div> : null
@@ -216,10 +226,21 @@ class NotesComponent extends React.Component {
             </div>
         );
     }
+    load = () => {
+        this.canvas.loadSaveData(this.state.data);
+    }
     // Storing something into the database
     updateData = async (val) => {
-        await this.setState({data:val});
-        this.update();
+        const {quill} = this.props;
+        if (!quill){
+            var val = this.canvas.getSaveData();
+            await this.setState({data:val});
+            this.update();
+        }
+        else{
+            await this.setState({data:val});
+            this.update();
+        }
     };
 
     //Controls when database gets updated i.e. 3 seconds after keyboard inactivity
@@ -229,7 +250,8 @@ class NotesComponent extends React.Component {
         this.props.updateNote({
             id: this.state.fileID,
             title: this.state.fileName,
-            data: this.state.data
+            data: this.state.data,
+            type: this.state.type
         })
     }, 1500);
 
