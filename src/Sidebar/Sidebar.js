@@ -35,22 +35,20 @@ class SidebarComponent extends React.Component{
         };
     }
     componentDidMount = () => {
-        console.log("TAGGINSTART");
-        let tagList = [];
-        let notes = this.props.notes;
-        //console.log(notes);
-        for (let i = 0; i < notes.length; i++) {
-            tagList = [...tagList, ...notes[i].tags];
-        }
-        const uniqueTags = [...new Set(tagList)];
-        this.setState({filteredNotes: this.props.notes});
-        this.setState({allTags: uniqueTags});
-        console.log("TAGGINEND");
+        setTimeout(() => {
+            let tagList = [];
+            let notes = this.props.notes;
+            for (let i = 0; i < notes.length; i++) {
+                tagList = [...tagList, ...notes[i].tags];
+            }
+            const uniqueTags = [...new Set(tagList)];
+            this.setState({filteredNotes: this.props.notes});
+            this.setState({allTags: uniqueTags});
+        }, 500);
     }
 
     render(){
         const {notes, classes, fileID, selectedNoteIndex} = this.props;
-        console.log(this.state);
         return(
             <div className={classes.sidebarContainer}>
                 <div className={classes.filterContainer}>
@@ -181,10 +179,8 @@ class SidebarComponent extends React.Component{
         
         //this.setState({title:null, addingNote: false});
         if (this.state.title === null){
-            console.log('using default title');
             title = "New Note";
         };
-        console.log('in newNote function');
         this.props.addNote(title, '', newNotetype);
         this.setState({title:null});
         this.setNoteType(newNotetype);
@@ -215,14 +211,11 @@ class SidebarComponent extends React.Component{
     }
 
     filterNotes = (selectedValues) => {
-        console.log("in filtered Notes");
-        console.log(selectedValues);
         if (selectedValues.length === 0){
             return this.props.notes;
         }
         let listOfNotes = [];
         let notes = this.props.notes;
-        console.log(notes);
         for (let i = 0; i < notes.length; i++) {
             for (let j = 0; j < selectedValues.length; j++) {
                 if (!(notes[i].tags).includes(selectedValues[j])){
