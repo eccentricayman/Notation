@@ -12,9 +12,9 @@ export const createNote = /* GraphQL */ `
       type
       data
       tags
-      owner
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -29,9 +29,9 @@ export const updateNote = /* GraphQL */ `
       type
       data
       tags
-      owner
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -46,9 +46,9 @@ export const deleteNote = /* GraphQL */ `
       type
       data
       tags
-      owner
       createdAt
       updatedAt
+      owner
     }
   }
 `;
