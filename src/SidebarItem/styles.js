@@ -8,6 +8,7 @@ const styles = theme => ({
   },
   deleteIcon: {
     position: 'absolute',
+    zIndex: '99',
     right: '17px',
     top: 'calc(50%-15px)',
       '&:hover': {

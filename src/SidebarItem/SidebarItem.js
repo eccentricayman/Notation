@@ -95,12 +95,12 @@ class SidebarItemComponent extends React.Component{
             <div key={index}>
                 <ListItem 
                 className = {classes.listItem}
-                selected={selectedNoteIndex === index}>
+                selected={selectedNoteIndex === index}
+                onClick={() => {
+                    this.selectNote(note,index);
+                }}>
                     <div
-                        className={classes.textSection}
-                        onClick={() => {
-                            this.selectNote(note,index);
-                        }}>
+                        className={classes.textSection}>
                             <ListItemText
                             /*note.title is whatever name the note has
                             note.data is the contents of the note
