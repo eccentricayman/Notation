@@ -1,3 +1,10 @@
+:root {
+  --amplify-primary-color: #57068C;
+  --amplify-primary-tint: #6a1aa0;
+  --amplify-primary-shade: #9a37db;
+}
+
+
 html, body{
     height: 100%;
     width: 100%;
