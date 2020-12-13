@@ -171,7 +171,9 @@ class App extends React.Component{
     }
 
 	componentDidMount() {
+        console.log("NOTEFETCHSTART");
 		this.fetchNotes();
+        console.log("NOTEFETCHEND");
 	}
 
 	//componentDidChange() {
