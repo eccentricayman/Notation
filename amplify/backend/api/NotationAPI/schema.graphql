@@ -1,11 +1,4 @@
-type Note @model
-@auth(rules: [
-    # Defaults to use the "owner" field.
-    { allow: owner },
-
-    # Authorize the update mutation and both queries.
-    { allow: owner, ownerField: "editors", operations: [update, read] }
-  ]) {
+type Note @model @auth(rules: [{allow: owner}]) {
   id: ID!
   title: String!
   type: Boolean!
