@@ -35,6 +35,7 @@ class SidebarComponent extends React.Component{
         };
     }
     componentDidMount = () => {
+        console.log("TAGGINSTART");
         let tagList = [];
         let notes = this.props.notes;
         //console.log(notes);
@@ -44,6 +45,7 @@ class SidebarComponent extends React.Component{
         const uniqueTags = [...new Set(tagList)];
         this.setState({filteredNotes: this.props.notes});
         this.setState({allTags: uniqueTags});
+        console.log("TAGGINEND");
     }
 
     render(){
