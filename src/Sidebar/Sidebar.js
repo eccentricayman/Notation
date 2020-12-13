@@ -17,8 +17,8 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { FilterNone } from '@material-ui/icons';
-import Amplify, { API, graphqlOperation, input } from 'aws-amplify'
-import { createNote, deleteNote } from '../graphql/mutations.js'
+import Amplify, { API, graphqlOperation, input } from 'aws-amplify';
+import { createNote, deleteNote } from '../graphql/mutations.js';
 
 
 
@@ -77,41 +77,41 @@ class SidebarComponent extends React.Component{
                 </Button>
                 {
                     this.state.addingNote ? 
-                    <div>
-                        <Dialog open={this.state.addingNote} onClose={this.closingNote} aria-labelledby="form-dialog-title">
-                            <DialogTitle id="form-dialog-title">Adding a new Note</DialogTitle>
-                            <DialogContent>
-                                <DialogContentText>
-                                    To add a new note please input a file name and select which note taking application would you like to use, Quill or Canvas
-                                </DialogContentText>
-                                <TextField
-                                    autoFocus
-                                    margin="dense"
-                                    id="note Name"
-                                    label="File Name"
-                                    type="text"
-                                    fullWidth
-                                    defaultValue="New File"
-                                    onChange={(e)=>this.updateFileName(e.target.value)}
-                                />
-                                <FormControl component="fieldset">
-                                <FormLabel component="legend">Note Type: </FormLabel>
-                                <RadioGroup aria-label="noteType" name="noteType" onChange={this.handleNoteType} value={this.state.newNotetype}>
-                                    <FormControlLabel value={1} control={<Radio />} label="Quill" />
-                                    <FormControlLabel value={0} control={<Radio />} label="Canvas" />
-                                </RadioGroup>
-                                </FormControl>
-                            </DialogContent>
-                            <DialogActions>
-                                <Button onClick={this.closingNote} color="primary">
-                                    Cancel
-                                </Button>
-                                <Button onClick={()=>this.newNote(this.state.title,this.state.newNotetype)} color="primary">
-                                    Submit
-                                </Button>
-                            </DialogActions>
-                        </Dialog>
-                    </div> : null
+                        <div>
+                            <Dialog open={this.state.addingNote} onClose={this.closingNote} aria-labelledby="form-dialog-title">
+                                <DialogTitle id="form-dialog-title">Adding a new Note</DialogTitle>
+                                <DialogContent>
+                                    <DialogContentText>
+                                        To add a new note please input a file name and select which note taking application would you like to use, Quill or Canvas
+                                    </DialogContentText>
+                                    <TextField
+                                        autoFocus
+                                        margin="dense"
+                                        id="note Name"
+                                        label="File Name"
+                                        type="text"
+                                        fullWidth
+                                        defaultValue="New File"
+                                        onChange={(e)=>this.updateFileName(e.target.value)}
+                                    />
+                                    <FormControl component="fieldset">
+                                        <FormLabel component="legend">Note Type: </FormLabel>
+                                        <RadioGroup aria-label="noteType" name="noteType" onChange={this.handleNoteType} value={this.state.newNotetype}>
+                                            <FormControlLabel value={1} control={<Radio />} label="Quill" />
+                                            <FormControlLabel value={0} control={<Radio />} label="Canvas" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={this.closingNote} color="primary">
+                                        Cancel
+                                    </Button>
+                                    <Button onClick={()=>this.newNote(this.state.title,this.state.newNotetype)} color="primary">
+                                        Submit
+                                    </Button>
+                                </DialogActions>
+                            </Dialog>
+                        </div> : null
                 }
                 <List>
                     {this.filterNotes(this.state.searchedTag).map((note, index) => {
@@ -136,23 +136,23 @@ class SidebarComponent extends React.Component{
         );
     }
     /*
-    This block of code is for when notes are within a database and the sidebar Items can appear
-    <List>
-        {
-        notes.map((_note, _index) => {
-            return(
-                <div key={_index}>
-                    <SidebarItemComponent
-                        _note={_note}
-                        _index={_index}
-                        fileID={fileID}
-                        selectNote={this.selectNote}></SidebarItemComponent>
-                    <Divider></Divider>
-                </div>
-            );
-        })
-    }
-    </List>
+      This block of code is for when notes are within a database and the sidebar Items can appear
+      <List>
+      {
+      notes.map((_note, _index) => {
+      return(
+      <div key={_index}>
+      <SidebarItemComponent
+      _note={_note}
+      _index={_index}
+      fileID={fileID}
+      selectNote={this.selectNote}></SidebarItemComponent>
+      <Divider></Divider>
+      </div>
+      );
+      })
+      }
+      </List>
     */
 
 
@@ -169,17 +169,17 @@ class SidebarComponent extends React.Component{
     newNote = async (title,newNotetype) => {
         //Insert database storing here
         /*
-        try{
-            var inp = {id:"", title:title, type:newNotetype, data:"", tags:"",users:"" }
-            await API.graphql(graphqlOperation(createNote, {input:inp}));
-        }catch(err){
-            console.log("Error");
-        }
+          try{
+          var inp = {id:"", title:title, type:newNotetype, data:"", tags:"",users:"" }
+          await API.graphql(graphqlOperation(createNote, {input:inp}));
+          }catch(err){
+          console.log("Error");
+          }
         */
         
-            //this.setState({title:null, addingNote: false});
+        //this.setState({title:null, addingNote: false});
         if (this.state.title === null){
-            console.log('using default title')
+            console.log('using default title');
             title = "New Note";
         };
         console.log('in newNote function');
@@ -238,4 +238,4 @@ class SidebarComponent extends React.Component{
         this.props.shareNote(note, user);
     }
 }
-export default withStyles(styles)(SidebarComponent)
+export default withStyles(styles)(SidebarComponent);
