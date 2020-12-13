@@ -9,9 +9,9 @@ export const getNote = /* GraphQL */ `
       type
       data
       tags
-      owner
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -28,9 +28,9 @@ export const listNotes = /* GraphQL */ `
         type
         data
         tags
-        owner
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }

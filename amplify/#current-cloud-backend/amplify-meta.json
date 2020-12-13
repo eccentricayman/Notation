@@ -22,7 +22,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/auth/Notation-cloudformation-template.yml",
         "logicalId": "authNotation"
       },
-      "lastPushTimeStamp": "2020-12-12T01:15:13.544Z",
+      "lastPushTimeStamp": "2020-12-13T03:35:05.012Z",
       "output": {
         "AppClientSecret": "p8fv8e2a692o5accmcohv420b14fff4ljfu11m35dde5rp5jkts",
         "UserPoolId": "us-east-1_rblrMocDX",
@@ -43,24 +43,22 @@
       "output": {
         "authConfig": {
           "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 7,
-              "description": "test"
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authNotation"
             }
           },
           "additionalAuthenticationProviders": []
         },
         "GraphQLAPIIdOutput": "hevifhig35gfvklcdwtoxn6sh4",
-        "GraphQLAPIEndpointOutput": "https://hanvide4m5dlpicfjifhkaj3t4.appsync-api.us-east-1.amazonaws.com/graphql",
-        "GraphQLAPIKeyOutput": "da2-zqlblcjyw5hvhcuxpk4fs2mdem"
+        "GraphQLAPIEndpointOutput": "https://hanvide4m5dlpicfjifhkaj3t4.appsync-api.us-east-1.amazonaws.com/graphql"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-notation-staging-174005-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiNotationAPI"
       },
-      "lastPushTimeStamp": "2020-12-12T01:15:14.700Z",
-      "lastPushDirHash": "7i1XhaTkU/+jE2iPPcS39Zsd5e4="
+      "lastPushTimeStamp": "2020-12-13T03:35:06.089Z",
+      "lastPushDirHash": "zTU6y62qvjbdRUzYLPadBeSECIk="
     }
   }
 }
