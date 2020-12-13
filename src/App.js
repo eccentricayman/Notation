@@ -49,8 +49,8 @@ class App extends React.Component{
 
 	
 	  addNote = async (title, data, type) => {
-        let note = {title: title, data: data, type: type, tags: []};
-		    let postedNote = await API.graphql({ query: createNoteMutation, variables: { input: note } });
+          let note = {title: title, data: data, type: type, tags: [], editors: []};
+		  let postedNote = await API.graphql({ query: createNoteMutation, variables: { input: note } });
         await this.setState(prevState => ({
             notes: [...prevState.notes, postedNote['data']['createNote']],
         }));
@@ -134,7 +134,11 @@ class App extends React.Component{
     }
     
     shareNote = (note,user) => {
-		console.log(user);
+		const updateMap = {
+			id: note.id,
+			editors: note.editors.concat(user)
+		};
+		API.graphql({ query: updateNoteMutation, variables: { input: updateMap } });
     }
 
 	componentDidMount() {

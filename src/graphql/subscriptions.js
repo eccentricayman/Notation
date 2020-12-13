@@ -2,13 +2,14 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateNote = /* GraphQL */ `
-  subscription OnCreateNote($owner: String!) {
-    onCreateNote(owner: $owner) {
+  subscription OnCreateNote($owner: String!, $editors: String!) {
+    onCreateNote(owner: $owner, editors: $editors) {
       id
       title
       type
       data
       tags
+      editors
       createdAt
       updatedAt
       owner
@@ -16,13 +17,14 @@ export const onCreateNote = /* GraphQL */ `
   }
 `;
 export const onUpdateNote = /* GraphQL */ `
-  subscription OnUpdateNote($owner: String!) {
-    onUpdateNote(owner: $owner) {
+  subscription OnUpdateNote($owner: String!, $editors: String!) {
+    onUpdateNote(owner: $owner, editors: $editors) {
       id
       title
       type
       data
       tags
+      editors
       createdAt
       updatedAt
       owner
@@ -30,13 +32,14 @@ export const onUpdateNote = /* GraphQL */ `
   }
 `;
 export const onDeleteNote = /* GraphQL */ `
-  subscription OnDeleteNote($owner: String!) {
-    onDeleteNote(owner: $owner) {
+  subscription OnDeleteNote($owner: String!, $editors: String!) {
+    onDeleteNote(owner: $owner, editors: $editors) {
       id
       title
       type
       data
       tags
+      editors
       createdAt
       updatedAt
       owner

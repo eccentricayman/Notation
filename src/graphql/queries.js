@@ -9,6 +9,7 @@ export const getNote = /* GraphQL */ `
       type
       data
       tags
+      editors
       createdAt
       updatedAt
       owner
@@ -28,6 +29,7 @@ export const listNotes = /* GraphQL */ `
         type
         data
         tags
+        editors
         createdAt
         updatedAt
         owner
