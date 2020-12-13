@@ -36,7 +36,7 @@ class App extends React.Component{
 			notes: [], //
 			currentNewId: 3,
 			//True for react Quill, False for React-Canvas, default is false
-      quill:true,
+			quill:true,
 		};
 	}
 
@@ -49,7 +49,7 @@ class App extends React.Component{
 
 	
 	  addNote = async (title, data, type) => {
-        let note = {title: title, data: data, type: type, tags: [], owner: Auth.user.username};
+        let note = {title: title, data: data, type: type, tags: []};
 		    let postedNote = await API.graphql({ query: createNoteMutation, variables: { input: note } });
         await this.setState(prevState => ({
             notes: [...prevState.notes, postedNote['data']['createNote']],
